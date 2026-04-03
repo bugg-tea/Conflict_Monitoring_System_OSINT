@@ -1,0 +1,1982 @@
+{
+  "aggregate": {
+    "total_events": 51,
+    "total_attacks": 10416,
+    "total_killed": 33146,
+    "total_injured": 26500,
+    "avg_severity": 6.71,
+    "escalation_level": "HIGH",
+    "event_type_counts": {
+      "diplomatic": 2,
+      "airstrike": 20,
+      "general": 21,
+      "missile_attack": 7,
+      "nuclear": 1
+    },
+    "actor_counts": {
+      "Trump": 8,
+      "Houthis": 6,
+      "Donald Trump": 5,
+      "Israels": 5,
+      "Trumps": 4,
+      "Al Jazeera": 4,
+      "Irans Islamic Revolutionary Guard Corps": 4,
+      "Ayatollah Ali Khamenei": 3,
+      "CNN": 3,
+      "Abbas Araghchi": 3,
+      "Hormuz": 3,
+      "Donald Trumps": 2,
+      "the White House": 2,
+      "Israel Defense Forces": 2,
+      "United Nations": 2
+    },
+    "location_counts": {
+      "Iran": 40,
+      "United States": 37,
+      "Israel": 18,
+      "Tehran": 13,
+      "the United States": 12,
+      "the Middle East": 9,
+      "the United Arab Emirates": 5,
+      "Middle East": 5,
+      "the Strait of Hormuz": 4,
+      "The United States": 4
+    },
+    "severity_by_date": {
+      "2026-03-27": 9.0,
+      "2026-03-31": 10.0,
+      "2026-04-01": 3.0
+    },
+    "volume_by_date": {
+      "2026-03-27": 1,
+      "2026-03-31": 1,
+      "2026-04-01": 7
+    },
+    "casualties_by_date": {
+      "2026-03-27": {
+        "killed": 0,
+        "injured": 0
+      },
+      "2026-03-31": {
+        "killed": 0,
+        "injured": 0
+      },
+      "2026-04-01": {
+        "killed": 0,
+        "injured": 0
+      }
+    },
+    "source_counts": {
+      "BBC World": 2,
+      "BBC Middle East": 1,
+      "Al Jazeera": 6,
+      "Google Iran US": 14,
+      "Google Iran Israel": 6,
+      "Google Iran Nuclear": 8,
+      "Google Houthi": 6,
+      "Google IRGC": 8
+    },
+    "actor_sentiment": {
+      "bush": "POSITIVE",
+      "Covid": "POSITIVE",
+      "Anthony Albanese": "POSITIVE",
+      "National Fuel Security Plan": "POSITIVE",
+      "Trump": "NEGATIVE",
+      "Donald Trumps": "NEGATIVE",
+      "Karachi": "NEGATIVE",
+      "Siddiqi": "NEGATIVE",
+      "Farhan Siddiqi": "NEGATIVE",
+      "Trumps": "NEGATIVE",
+      "the White House": "NEGATIVE",
+      "Wall Street Journal": "NEGATIVE",
+      "Al Jazeera": "NEGATIVE",
+      "Donald Trump": "NEGATIVE",
+      "White House": "NEGATIVE",
+      "Share Trump": "NEGATIVE",
+      "Global Conflict Tracker - Council on Foreign Relations": "NEGATIVE",
+      "Map Center for Preventive Action": "NEGATIVE",
+      "the National Council of Resistance of Iran": "NEGATIVE",
+      "the United Nations": "NEGATIVE",
+      "the UN Security Council": "NEGATIVE",
+      "Trump ‘": "NEGATIVE",
+      "Karoline Leavitt": "NEGATIVE",
+      "Morocco World News": "POSITIVE",
+      "Alireza Tangsiri": "NEGATIVE",
+      "Ayatollah Ali Khamenei": "POSITIVE",
+      "Ali Larijani": "POSITIVE",
+      "Pedro Sancehez": "POSITIVE",
+      "Pete Hegseth": "POSITIVE",
+      "Sky News": "POSITIVE",
+      "ReutersIpsos": "NEGATIVE",
+      "Steve Witkoff": "POSITIVE",
+      "Reuters": "NEGATIVE",
+      "CNN": "NEGATIVE",
+      "Irans Foreign Ministry": "NEGATIVE",
+      "the Middle East Policy Council": "NEGATIVE",
+      "Gulf Cooperation Council": "NEGATIVE",
+      "Houthis": "NEGATIVE",
+      "Explained": "POSITIVE",
+      "Map": "POSITIVE",
+      "Irans Assembly of Experts": "POSITIVE",
+      "The New York Times": "POSITIVE",
+      "Supreme": "POSITIVE",
+      "mission - Atlantic Council": "POSITIVE",
+      "the Israel Defense Forces IDF hit Irans South Pars": "NEGATIVE",
+      "Israel Defense Forces": "NEGATIVE",
+      "Canadas Energy": "POSITIVE",
+      "Oxford Economics": "POSITIVE",
+      "ExxonMobil": "POSITIVE",
+      "Tim Hodgson": "POSITIVE",
+      "Israels": "NEGATIVE",
+      "Natanz": "NEGATIVE",
+      "Esfahan": "NEGATIVE",
+      "the Iranian Revolutionary Guard Corps": "NEGATIVE",
+      "Al Udeid": "NEGATIVE",
+      "USIran": "NEGATIVE",
+      "United Nations": "POSITIVE",
+      "Abbas Araghchi": "NEGATIVE",
+      "the US Embassy": "POSITIVE",
+      "the Defense Intelligence Agency DIA": "POSITIVE",
+      "White Houses": "NEGATIVE",
+      "The White House": "NEGATIVE",
+      "the Israeli Defense Forces IDF": "NEGATIVE",
+      "Israel Katz": "NEGATIVE",
+      "IAEA": "NEGATIVE",
+      "Irans Islamic Revolutionary Guard Corps": "POSITIVE",
+      "The Iranian Atomic Energy Organization": "POSITIVE",
+      "Vance": "POSITIVE",
+      "Simon Tisdall -": "POSITIVE",
+      "Guardian": "POSITIVE",
+      "Junes US": "POSITIVE",
+      "Amnesty International": "POSITIVE",
+      "Mehdi Hassani": "POSITIVE",
+      "PBS News": "NEGATIVE",
+      "Guterres - UN News": "POSITIVE",
+      "Guterres UN News": "POSITIVE",
+      "pro-Iran Houthi": "NEGATIVE",
+      "Ukraines Volodymyr Zelenskyy": "NEGATIVE",
+      "Hormuz": "NEGATIVE",
+      "Israels Home Front Command": "NEGATIVE",
+      "Hormuz Houthis": "NEGATIVE",
+      "Yahya Saree": "NEGATIVE",
+      "Farea Al-Muslimi": "NEGATIVE",
+      "Khaled AbdullahReuters Houthis": "NEGATIVE",
+      "the International Atomic Energy Agency": "NEGATIVE",
+      "Bab Al Mandeb": "NEGATIVE",
+      "the Axis of Jihad and Resistance": "NEGATIVE",
+      "Irans Fars": "NEGATIVE",
+      "Irans Energy Ministry": "NEGATIVE",
+      "The US Embassy": "NEGATIVE",
+      "Iraqs Islamic Supreme Council": "NEGATIVE",
+      "IRGC": "NEGATIVE",
+      "the American Universities": "NEGATIVE",
+      "the Armys 82nd": "NEGATIVE",
+      "Pentagon": "NEGATIVE",
+      "CBSAFP Financial": "NEGATIVE",
+      "Irans Revolutionary Guards": "NEGATIVE",
+      "Irans Bushehr": "NEGATIVE",
+      "Iran - Atlantic Council": "NEGATIVE",
+      "WASHINGTONExperienced": "NEGATIVE",
+      "Mexicos": "NEGATIVE",
+      "the North American Free Trade Agreement": "NEGATIVE",
+      "Bashar al-Assad": "NEGATIVE",
+      "US Central Command": "NEGATIVE",
+      "the Islamic Republic Guards Corps": "NEGATIVE",
+      "Hezbollah": "NEGATIVE"
+    },
+    "last_updated": "2026-04-03T18:24:33.829512+00:00"
+  },
+  "risk": {
+    "risk_score": 53.54,
+    "risk_label": "HIGH",
+    "escalation": "HIGH",
+    "rule_score": 85.13,
+    "llm_score": 40,
+    "breakdown": {
+      "attack_component": 30.0,
+      "severity_component": 20.13,
+      "casualty_component": 25.0,
+      "escalation_component": 10
+    },
+    "final_killed": 33146,
+    "final_injured": 26500,
+    "final_attacks": 10416
+  },
+  "wiki_stats": [
+    {
+      "source": "Wikipedia: 2026 Iran-US War",
+      "url": "https://en.wikipedia.org/wiki/2026_Iran%E2%80%93United_States_war",
+      "type": "wikipedia",
+      "full_text": "2026 Iran war Part of the Iran–Israel conflict , Middle Eastern crisis , and American expansionism under Donald Trump Locations struck by: United States and Israel Iran, Hezbollah , Houthis , and PMF v t e Date 28 February 2026 ( 2026-02-28 ) – present (1 month and 6 days) Location West Asia [ f ] Indian Ocean [ g ] Status Ongoing Assassination of top Iranian officials in US–Israeli strikes , including Ali Khamenei and Ali Larijani Iranian retaliation by striking Israel and regional US allies Establishment of Iranian control over the Strait of Hormuz and toll collection in Chinese yuan for oil sold through the strait [ 9 ] [ 10 ] Deployment of military assets in Cyprus by some European countries following a drone attack in the island Election of Mojtaba Khamenei as the Supreme Leader of Iran Escalation of the Israel–Hezbollah conflict Global economic disruption and fuel crisis Belligerents United States Israel Attacked by Iran: Bahrain Iraq Kurdistan Region [ a ] Jordan Kuwait Lebanon Oman Qatar Saudi Arabia United Arab Emirates United Kingdom Akrotiri and Dhekelia British Indian Ocean Territory [ b ] Iran Hezbollah [ c ] Houthis [ d ] Popular Mobilization Forces [ 2 ] Islamic Resistance in Iraq [ 3 ] Attacked by Israel: Lebanon Amal Movement [ e ] Islamic Group [ 5 ] Hamas [ 6 ] Palestinian Islamic Jihad [ 7 ] Commanders and leaders Donald Trump Pete Hegseth Dan Caine Brad Cooper Benjamin Netanyahu Israel Katz Eyal Zamir Ali Khamenei X Mojtaba Khamenei Ali Larijani X Masoud Pezeshkian Alireza Arafi Aziz Nasirzadeh † Abdolrahim Mousavi † Mohammad Pakpour † Falih Al-Fayyadh Units involved See order of battle Casualties and losses Per US and Israel: United States: 15 soldiers killed [ h ] [ 12 ] 520+ military personnel wounded [ i ] At least 17 US sites [ j ] in the Middle East damaged [ 16 ] equivalent to loss of $800m [ 17 ] For aviation losses, see this list Israel: 11 soldiers killed [ k ] 23 civilians killed [ l ] 6,594 injured [ 29 ] 311 military personnel wounded [ 30 ] [ 31 ] Per Iran: United States: At least 12 radar systems and satellite terminals destroyed or damaged [ 32 ] Multiple AN/TPY-2s destroyed or damaged [ 33 ] 1 THAAD radar destroyed or seriously damaged [ 34 ] 1 AN/FPS-132 , 1 AN/TPS-59 [ 35 ] , 1 AN/FPS-117 [ 36 ] , 1 AN/MPQ-64 destroyed [ 37 ] , 1 MIM-104 Patriot AN/MPQ-65 radar and 1 AN/TPS-75 damaged [ 38 ] Per Iranian Health Ministry : Iran: 2,076 people killed [ m ] and 26,500 injured [ n ] [ 39 ] Per internal sources: Hezbollah: 400+ fighters killed [ 40 ] Per HRANA : 3,530 killed (1,213 military personnel, 1,606 civilians, and 711 unclassified) [ 41 ] Per US and Israel: Iran: 6,000+ military personnel killed [ 42 ] ~15,000 military personnel wounded [ 42 ] 190+ ballistic missile launchers destroyed [ 43 ] 150 naval vessels destroyed [ 44 ] [ o ] For naval losses, see this list For aviation losses, see this list Hezbollah: 900 fighters killed [ 46 ] Popular Mobilization Forces: 84 fighters killed, 138 injured [ p ] See ",
+      "killed": 3530,
+      "injured": 26500,
+      "attacks": 7,
+      "fetched_at": "2026-04-03T18:24:16.049424+00:00"
+    },
+    {
+      "source": "Al Jazeera Live Tracker",
+      "url": "https://www.aljazeera.com/news/2026/3/1/us-israel-attacks-on-iran-death-toll-and-injuries-live-tracker",
+      "type": "aljazeera",
+      "full_text": "Preliminary figures are 1,937 dead in Iran, at least 24 in Israel, 13 US soldiers and 27 killed in Gulf states. Save Share Explosions continue to be heard for a 35th day in Iran, Israel, and across several Middle Eastern states after the United States and Israel began attacking Iran on February 28th. Saudi Arabia, Qatar, Kuwait, and the United Arab Emirates (UAE) reported Iranian attacks on energy sites after Israel struck Iran’s South Pars gasfield, an escalation that has caused oil and gas prices to surge. Tehran has responded to US and Israeli strikes by launching waves of missiles and drones at Israel and towards several military bases in the Middle East where US forces operate. Iran had previously warned that if it were attacked, it would respond by targeting US military facilities across the region, which it considers legitimate targets. US forces with Israeli forces have struck Iran since February 28, including the nuclear, military and civilian sites. In retaliation, Iranian forces say it has launched attacks the Middle East where US troops are deployed, as well as Israeli military facilities in Tel Aviv and other parts of Israel. So far, Iran has launched strikes across nine countries in the region: Bahrain, Iraq, Jordan, Kuwait, Oman, Qatar, Saudi Arabia and the UAE. An Iranian drone also struck a runway at a United Kingdom military base in Cyprus. On March 28, Yemen’s Houthi rebels attacked Israel with a barrage of ballistic missiles – their first such strikes since the US-Israel war on Iran began. Most of these attacks have been intercepted. Below are the confirmed casualties across countries that have been subject to attacks as of Friday at 10:30 GMT. Due to the rapidly evolving situation, all figures may change as more information becomes available.  At least 2,076 people have been killed by US-Israeli attacks on Iran since February 28, Iran’s Health Ministry says. Over 26,500 people have been injured, including atleast 4,000 women and 1,621 children.      At least 24 Israelis have been killed and more than 6,594 others wounded. Israel’s Health Ministry urged Israelis to rush to bomb shelters “with caution”, noting that people have been injured while running to shelters. At least 180 people were wounded in Iranian missile attacks on the southern city of Dimona – home to the country’s main nuclear facility – and nearby Arad, in one of the most dramatic escalations since the US-Israel war on Iran began. Iranian state television framed Saturday’s strikes as a “response” to an attack on Iran’s Natanz nuclear enrichment complex earlier in the day, marking a stark new phase of tit-for-tat targeting in the conflict. The Israeli army says a ten soldier have been killed in southern Lebanon, where Israeli forces have launched ground operations against Hezbollah. The US military has confirmed 13 fatalities from Iranian attacks across the region. Additionally, one service member died of a “health-related incident” in Kuwait. On March 13, US CEN",
+      "killed": 1937,
+      "injured": 0,
+      "attacks": 0,
+      "fetched_at": "2026-04-03T18:24:16.782929+00:00"
+    },
+    {
+      "source": "Wikipedia: Operation Epic Fury",
+      "url": "https://en.wikipedia.org/wiki/Operation_Epic_Fury",
+      "type": "wikipedia",
+      "full_text": "2026 Iran war Part of the Iran–Israel conflict , Middle Eastern crisis , and American expansionism under Donald Trump Locations struck by: United States and Israel Iran, Hezbollah , Houthis , and PMF v t e Date 28 February 2026 ( 2026-02-28 ) – present (1 month and 6 days) Location West Asia [ f ] Indian Ocean [ g ] Status Ongoing Assassination of top Iranian officials in US–Israeli strikes , including Ali Khamenei and Ali Larijani Iranian retaliation by striking Israel and regional US allies Establishment of Iranian control over the Strait of Hormuz and toll collection in Chinese yuan for oil sold through the strait [ 9 ] [ 10 ] Deployment of military assets in Cyprus by some European countries following a drone attack in the island Election of Mojtaba Khamenei as the Supreme Leader of Iran Escalation of the Israel–Hezbollah conflict Global economic disruption and fuel crisis Belligerents United States Israel Attacked by Iran: Bahrain Iraq Kurdistan Region [ a ] Jordan Kuwait Lebanon Oman Qatar Saudi Arabia United Arab Emirates United Kingdom Akrotiri and Dhekelia British Indian Ocean Territory [ b ] Iran Hezbollah [ c ] Houthis [ d ] Popular Mobilization Forces [ 2 ] Islamic Resistance in Iraq [ 3 ] Attacked by Israel: Lebanon Amal Movement [ e ] Islamic Group [ 5 ] Hamas [ 6 ] Palestinian Islamic Jihad [ 7 ] Commanders and leaders Donald Trump Pete Hegseth Dan Caine Brad Cooper Benjamin Netanyahu Israel Katz Eyal Zamir Ali Khamenei X Mojtaba Khamenei Ali Larijani X Masoud Pezeshkian Alireza Arafi Aziz Nasirzadeh † Abdolrahim Mousavi † Mohammad Pakpour † Falih Al-Fayyadh Units involved See order of battle Casualties and losses Per US and Israel: United States: 15 soldiers killed [ h ] [ 12 ] 520+ military personnel wounded [ i ] At least 17 US sites [ j ] in the Middle East damaged [ 16 ] equivalent to loss of $800m [ 17 ] For aviation losses, see this list Israel: 11 soldiers killed [ k ] 23 civilians killed [ l ] 6,594 injured [ 29 ] 311 military personnel wounded [ 30 ] [ 31 ] Per Iran: United States: At least 12 radar systems and satellite terminals destroyed or damaged [ 32 ] Multiple AN/TPY-2s destroyed or damaged [ 33 ] 1 THAAD radar destroyed or seriously damaged [ 34 ] 1 AN/FPS-132 , 1 AN/TPS-59 [ 35 ] , 1 AN/FPS-117 [ 36 ] , 1 AN/MPQ-64 destroyed [ 37 ] , 1 MIM-104 Patriot AN/MPQ-65 radar and 1 AN/TPS-75 damaged [ 38 ] Per Iranian Health Ministry : Iran: 2,076 people killed [ m ] and 26,500 injured [ n ] [ 39 ] Per internal sources: Hezbollah: 400+ fighters killed [ 40 ] Per HRANA : 3,530 killed (1,213 military personnel, 1,606 civilians, and 711 unclassified) [ 41 ] Per US and Israel: Iran: 6,000+ military personnel killed [ 42 ] ~15,000 military personnel wounded [ 42 ] 190+ ballistic missile launchers destroyed [ 43 ] 150 naval vessels destroyed [ 44 ] [ o ] For naval losses, see this list For aviation losses, see this list Hezbollah: 900 fighters killed [ 46 ] Popular Mobilization Forces: 84 fighters killed, 138 injured [ p ] See ",
+      "killed": 3530,
+      "injured": 26500,
+      "attacks": 7,
+      "fetched_at": "2026-04-03T18:24:18.969701+00:00"
+    }
+  ],
+  "rss_events": [
+    {
+      "source": "BBC World",
+      "title": "How Pakistan won over Trump to become an unlikely mediator in the Iran war",
+      "summary": "how pakistan won over trump to become an unlikely mediator in the iran war pakistans role as intermediary in this conflict took many by surprise. but perhaps it shouldnt. the head of its armed forces, field marshal asim munir, is in us president donald trumps favour. the us leader frequently refers ",
+      "url": "https://www.bbc.com/news/articles/cy91vrzxn34o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-03-31 02:33:18.419000+00:00",
+      "event_type": "airstrike",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Trump",
+        "Donald Trumps",
+        "Karachi"
+      ],
+      "locations": [
+        "Pakistan",
+        "Karachi"
+      ],
+      "geo": {
+        "lat": 30.3308401,
+        "lon": 71.247499
+      },
+      "sentiment": {
+        "Trump": "NEGATIVE",
+        "Donald Trumps": "NEGATIVE",
+        "Karachi": "NEGATIVE",
+        "Siddiqi": "NEGATIVE",
+        "Farhan Siddiqi": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Iran US",
+      "title": "Trump says U.S. could end Iran war in 2-3 weeks; Tehran threatens U.S. companies in region - Japan Today",
+      "summary": "president donald trump said the united states could end its military attacks on iran within two to three weeks and that tehran did not have to make a deal as a prerequisite for the conflict winding down. the remarks underscored the shifting and at times contradictory statements from washington about",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOcHhXTlc0dUVFU0RSYTdrbXpLNHp0Y1gtQWY2dUdITjg1d05MLVJJLXBxbHk4QXJ2dk1pbkx2RjJ3V0dBQmsxQl9MZkRLZTVQcllMZDlZc0VUN01ScmpsbXJPMGNUWjZkY0pTcXZoVm8ycnp1ZjJXQy1FMlNOdWFNQjNxVzZtNEZBZmhrTi15QVpPUExwVnZlWnF6YkxMbEQ1RmV4and4dU9zbzFyNHBXZ3VVVFM?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Trump",
+        "Donald Trump",
+        "ReutersIpsos"
+      ],
+      "locations": [
+        "Japan",
+        "U.S.-Israeli"
+      ],
+      "geo": {
+        "lat": 36.5748441,
+        "lon": 139.2394179
+      },
+      "sentiment": {
+        "Trump": "NEGATIVE",
+        "Donald Trump": "NEGATIVE",
+        "ReutersIpsos": "NEGATIVE",
+        "Steve Witkoff": "POSITIVE",
+        "Reuters": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Iran US",
+      "title": "Analysis: Why the nation trying to broker US-Iran peace talks risks being drawn into the conflict - CNN",
+      "summary": "in the month since the us and israel began their aerial bombing campaign of iran, thousands of people have been killed across at least nine countries in a rapidly escalating conflict that is costing economies billions of dollars a day. the world is facing a global energy crisis. but the scale of thi",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOOE5ONXh5aUpKVnJNSGhuU2dnRGtHX0RPblFLeEN5OVN4aXQzV0VuNWw5Y3RlNnQtc2NVeW1jZG01c05EdE9yQ0JnRklsQmoyckhTcXV6bndiZnhfRWsza2FTUWVjZDVBMWhRWEpQbl9PbkZWZ2VkbDY2ZmxEdXNHQW9yV2tkUDlLUVNZ?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "CNN",
+        "Irans Foreign Ministry",
+        "the Middle East Policy Council"
+      ],
+      "locations": [
+        "United States",
+        "Israel"
+      ],
+      "geo": {
+        "lat": 39.7837304,
+        "lon": -100.445882
+      },
+      "sentiment": {
+        "CNN": "NEGATIVE",
+        "Irans Foreign Ministry": "NEGATIVE",
+        "the Middle East Policy Council": "NEGATIVE",
+        "Gulf Cooperation Council": "NEGATIVE",
+        "Houthis": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Iran US",
+      "title": "US-Israel war with Iran: Mapping strikes across the Middle East - bbc.com",
+      "summary": "us president donald trump has postponed his threat to strike iranian power plants for five days after what he said were productive conversations between the us and iran. on saturday evening, the president said that if the strait of hormuz was not opened without threat in 48 hours then the us would o",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBLRUpYN0FvVmZYemhQRWd5aE8wVXk0VVhVWkNBVkZQQVRvWDd1OThuSGdvclZBaTd4UFpjS3ctUjlBZlBodnNLaUNYbnJFUDBLenR2cnZzVV9lZw?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "the Israel Defense Forces IDF hit Irans South Pars",
+        "Donald Trump",
+        "Trump"
+      ],
+      "locations": [
+        "Israel",
+        "the Middle East"
+      ],
+      "geo": {
+        "lat": 30.8124247,
+        "lon": 34.8594762
+      },
+      "sentiment": {
+        "the Israel Defense Forces IDF hit Irans South Pars": "NEGATIVE",
+        "Donald Trump": "NEGATIVE",
+        "Trump": "NEGATIVE",
+        "Israel Defense Forces": "NEGATIVE",
+        "Trumps": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Iran Israel",
+      "title": "Collection: Iran, Israel and the United States at War (2025-2026 Operations) - Just Security",
+      "summary": "the united states and israel launched a series of strikes against iran on feb. 28, 2026, bombing numerous sites in the cities of tehran and across the country. strikes killed irans supreme leader ayatollah ali khamenei and several other members of irans leadership, including the commander of the ira",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBoSVdUeXVkem5oeFB6SzlYa0xrbmpSVXdlWDdrX3dhbG5vWFNvZ1ZLXzR6U0N1WVMyekQ0RzY2UXgwRWdwU0E2ZXRIbXZwaWN2eTZRbkU4M1N2X25xMjY0RjQ4WFdvdEc2VHhkbXpONWJYWEo2TzBB?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Israels",
+        "Natanz",
+        "Ayatollah Ali Khamenei"
+      ],
+      "locations": [
+        "Israel",
+        "the United States"
+      ],
+      "geo": {
+        "lat": 30.8124247,
+        "lon": 34.8594762
+      },
+      "sentiment": {
+        "Israels": "NEGATIVE",
+        "Natanz": "NEGATIVE",
+        "Ayatollah Ali Khamenei": "NEGATIVE",
+        "Esfahan": "NEGATIVE",
+        "the Iranian Revolutionary Guard Corps": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Iran Nuclear",
+      "title": "US re-asserts 2025 strikes ‘obliterated’ Iran’s nuclear programme - Al Jazeera",
+      "summary": "the white houses comment comes days after a senior trump aide said iran is one week away from having material for nuclear bomb. save share the white house has insisted that last years strikes against iran destroyed the countrys nuclear programme despite a recent claim by a senior us official that te",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMnZFX1QwLTd6VUxLc1ViVzExb0h3SENpWGVCcUpPMFV6QmJvbEc4bmk3QzBJMEpZU3F3bzVBRzg5TFZXNFR1Mm5Pek1qenRIMldjNTB4ZndObmNJNjV3QzFNZ2NwNmdiVGVQYnYzWVpXTVRGeThMclJJTFlqeEx3Zm9sWGh1aWZVZGROYXZoX0RGUmdrT2Q3RzNyYXVNVjYySDljT2dB0gGrAUFVX3lxTE1VU3VTQTNuX1VmMEU5T0YxN1pzeEZmU21KWWtKRVpZeFR3YS1iSXNzSXg1OXlUNFRrdHBhSU9qdHBJM2lKX0g5cV9WVldvTnNhSW84YlIzbjh5OXZHcHN1ZGNkZThXQm9EV2k0T21Bck5fVFNsRVlkVlIyR3VjY2NTbEdwZ2g2M1JpZEFaNnlic0lUci1FZEtFTWNqaFkySVEtb2NRbUFjOEZJaw?oc=5",
+      "published": null,
+      "event_type": "missile_attack",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "White Houses",
+        "the White House",
+        "The White House"
+      ],
+      "locations": [
+        "the United States",
+        "Iran"
+      ],
+      "geo": {
+        "lat": 47.8291375,
+        "lon": -122.5970742
+      },
+      "sentiment": {
+        "White Houses": "NEGATIVE",
+        "the White House": "NEGATIVE",
+        "The White House": "NEGATIVE",
+        "Trump": "NEGATIVE",
+        "Trumps": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Iran Nuclear",
+      "title": "US and Israel launch attacks on Iran - BBC",
+      "summary": "the strikes have hit cities including tehran, the capital of iran the us and israel have launched attacks on iran, which is a country in the middle east. us president donald trump said in a video that the american military has begun major combat operations in iran. in a statement, israels prime mini",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBfR0FsV096cERCbWxNWnUxMmNudVJSb210U2kxM3NGOVpFREhvRmtXNjZVWjk5TVNaQ2pvVmdUeUc1bF9OUEVYeU5qb3NxSmw1eHlFeEptT2Q4RFB4ZDF2emg3bw?oc=5",
+      "published": null,
+      "event_type": "missile_attack",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Israels",
+        "the Israeli Defense Forces IDF",
+        "Israel Katz"
+      ],
+      "locations": [
+        "Israel",
+        "Tehran"
+      ],
+      "geo": {
+        "lat": 30.8124247,
+        "lon": 34.8594762
+      },
+      "sentiment": {
+        "Israels": "NEGATIVE",
+        "the Israeli Defense Forces IDF": "NEGATIVE",
+        "Israel Katz": "NEGATIVE",
+        "United Nations": "POSITIVE",
+        "IAEA": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Iran Nuclear",
+      "title": "U.S. enters Israel's war against Iran - Axios",
+      "summary": "add axios as your preferred source to see more of our stories on google. trump delivers an address to the nation, flanked by vice president vance, secretary of state marco rubio and defense secretary pete hegseth. photo: carlos barriareutersbloomberg via getty images the u.s. military conducted airs",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1QM0Q0VE1KaF9uTEl0eU9RQjV6R0gzWVdRaGs5ZjlPN0VVRHd1c0ViZjdGZ2FNWHRLUW9GaHhhZjJ3NUNXdUREejdlNHVRUWZCX1hvQjBBaHpubTRMYlRmN0s3c0dvTTFJZVFBWXdiQXgzamNLS0Jn?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Israels",
+        "Irans Islamic Revolutionary Guard Corps",
+        "The Iranian Atomic Energy Organization"
+      ],
+      "locations": [
+        "Israel",
+        "Iran"
+      ],
+      "geo": {
+        "lat": 30.8124247,
+        "lon": 34.8594762
+      },
+      "sentiment": {
+        "Israels": "POSITIVE",
+        "Irans Islamic Revolutionary Guard Corps": "POSITIVE",
+        "The Iranian Atomic Energy Organization": "POSITIVE",
+        "Vance": "POSITIVE",
+        "Abbas Araghchi": "POSITIVE"
+      }
+    },
+    {
+      "source": "Google Iran Nuclear",
+      "title": "US strikes on Iran’s nuclear sites ‘marks perilous turn’: Diplomacy must prevail, says Guterres - UN News",
+      "summary": "us strikes on irans nuclear sites marks perilous turn: diplomacy must prevail, says guterres un news",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1MVHNPdzdNT1NSMFoySVVJUHBoRGVUZjQwQUNOVTVXWm1ZWnRjdE9OaEYwSVVGQkVob3ZMX1N6SUpoQ203b29hazlucWFWRDY4c1I0SnhuVQ?oc=5",
+      "published": null,
+      "event_type": "nuclear",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Guterres - UN News",
+        "Guterres UN News"
+      ],
+      "locations": [
+        "Iran",
+        "United States"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {
+        "Guterres - UN News": "POSITIVE",
+        "Guterres UN News": "POSITIVE"
+      }
+    },
+    {
+      "source": "Google Houthi",
+      "title": "What we know on Day 29 of the US and Israel’s war with Iran: Houthis enter conflict, US builds up forces - CNN",
+      "summary": "a man stands next to a building destroyed by an israeli strike in southern lebanon on saturday. yara nardireuters the middle east see all topics facebook tweet email link threads link copied follow as the war in iran enters its fifth week, the conflict widened further on saturday, when iranian-backe",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNa1lURVRBcHpJZ1Y2cHprZWdCY3RWeFFoRzlzS0YzN2J2VG8wYnFoZ0RaZnhwZlZFS2pYUVg4U19FTU9iMkMzWUlJcTU4M2NTY0otYldmTGRwWFlvcWNGeGJSR0lwQ0RmWWhISllVSzllazE5bklLZExHUkJBZkVYU2E3RzZPQWVseWdnRExuTDBUdngybC1EZEFXc0RrNmhHT1RnV21IWVg?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Houthis",
+        "Khaled AbdullahReuters Houthis",
+        "Israel Defense Forces"
+      ],
+      "locations": [
+        "United States",
+        "Israel"
+      ],
+      "geo": {
+        "lat": 39.7837304,
+        "lon": -100.445882
+      },
+      "sentiment": {
+        "Houthis": "NEGATIVE",
+        "Khaled AbdullahReuters Houthis": "NEGATIVE",
+        "Israel Defense Forces": "NEGATIVE",
+        "CNN": "NEGATIVE",
+        "the International Atomic Energy Agency": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google IRGC",
+      "title": "Iran war: Tehran warns US against ground assault - DW.com",
+      "summary": "iran says its forces are waiting for the arrival of us ground troops to set them on fire. meanwhile, israel says it will further expand its buffer zone in southern lebanon. us plotting ground attack despite diplomatic efforts, said iran parliament speaker pentagon preparing possible deployment of gr",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOSXE4WVFndEZQVWNOQjh2UkVNV2FIaTQ3MERlWEtuN192WG1pRnlsVE9zMVFHUVRncDZmX0NKb204STYwNXQ3LV9HQm51c2thVVJLWWExNGx6U2pnd2QyMnpPb3BRMlMzMC1SS1N1NTFVOVo1UWE2TDRYbWJCU0tXRXFnV2pCb0l2Z3pB?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Irans Fars",
+        "Irans Energy Ministry",
+        "Irans Islamic Revolutionary Guard Corps"
+      ],
+      "locations": [
+        "Tehran",
+        "Iran"
+      ],
+      "geo": {
+        "lat": 35.6892523,
+        "lon": 51.3896004
+      },
+      "sentiment": {
+        "Irans Fars": "NEGATIVE",
+        "Irans Energy Ministry": "NEGATIVE",
+        "Irans Islamic Revolutionary Guard Corps": "NEGATIVE",
+        "The US Embassy": "NEGATIVE",
+        "Iraqs Islamic Supreme Council": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google IRGC",
+      "title": "Iran war: IRGC says US campuses in Middle East at risk - DW.com",
+      "summary": "iran says its forces are waiting for the arrival of us ground troops to set them on fire. meanwhile, israel says it will further expand its buffer zone in southern lebanon. us plotting ground attack despite diplomatic efforts, said iran parliament speaker pentagon preparing possible deployment of gr",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPeDFtenVuR2lUY1luMmVQZWY0ZFpYb3RUcFFaV216QTBtbGNsXzdHWkIyQUlJMTJReWVWbjFCMGExVHJiOEltV0Y4Wk1iWF8xalFiTlF0cE9EaTdiSlE3U2hTc09GUjU1emRKWlNQWVhNYlZpdko2TUZhay1GNnFsMWRFSUYwQ1J4dkt6elh6VkdXaWs?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "IRGC",
+        "Irans Fars",
+        "Irans Energy Ministry"
+      ],
+      "locations": [
+        "the Middle East",
+        "Middle East"
+      ],
+      "geo": {
+        "lat": 55.4142529,
+        "lon": -2.201099
+      },
+      "sentiment": {
+        "IRGC": "NEGATIVE",
+        "Irans Fars": "NEGATIVE",
+        "Irans Energy Ministry": "NEGATIVE",
+        "Irans Islamic Revolutionary Guard Corps": "NEGATIVE",
+        "the American Universities": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google IRGC",
+      "title": "Iran war rages with Pentagon expected to send 82nd Airborne troops to Middle East - CBS News",
+      "summary": "updated on: march 25, 2026 2:00 am edt follow updates on the war in the middle east for wednesday, march 25, here. see earlier developments below. an iranian military spokesperson mocked u.s. attempts at a ceasefire deal wednesday, insisting the americans were only negotiating with themselves. ebrah",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNMnJ4aHRpWHEySzBfUVVDSGg4bFpOMDBnOG5VY3NMY0NCQU5ETUZzMFdTOHZ4bW9tV0tDblZPVmY4TUVfd19yUjJabkNEU3g4QnpLS2FCRWxiemxRLTdaVG9ad3h0T2JNQ1FkSHlDc0xrbzBZMGJ1dDAxa0tpdEtuM3l2MHNjUHJ4X2NGU1dFLXVBb3BPWE5tcktxNHVmRjRtV2gyM1pn0gGrAUFVX3lxTE1WX21IajlZZVYxZUF5bUY5SHhCZHJLMlE3VDBWZ2h4VUFQNVl6Q3FrT1FyYVhNMXVtcDVOQ0dtNTJ1UjdTSXRBSFRrQ29ST0EyaVdPRHdyS3l1YTJJLWlHcGstYjNMOTBGWmlFbktqT0tMRENnX3RRcVRDNjlmS1BfbXo0NlZUUGtRa0lFTTV2ZWUyc0RncExoZnpKVFVndzJUYzFPR0l0WFpmNA?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "the Armys 82nd",
+        "Pentagon",
+        "CBSAFP Financial"
+      ],
+      "locations": [
+        "Middle East",
+        "the Middle East"
+      ],
+      "geo": {
+        "lat": 39.3014159,
+        "lon": -76.5888477
+      },
+      "sentiment": {
+        "the Armys 82nd": "NEGATIVE",
+        "Pentagon": "NEGATIVE",
+        "CBSAFP Financial": "NEGATIVE",
+        "Irans Revolutionary Guards": "NEGATIVE",
+        "Irans Bushehr": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google IRGC",
+      "title": "Ten predictions for the potential US strikes on Iran - Atlantic Council",
+      "summary": "washingtonexperienced foreign-policy observers in the us capital have long learned never to make public predictions. the world is far too uncertain and the downside risks to your reputation are far too high if you end up well off the mark. its clearly advisable to wait until events have already tran",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPRFVKTnZkYkxqNjExdEVMdkUzRkUzY0tuSGZtNHZfdWtzWk00cHRNYkpBbzc3bmo2NFJETy0xM2hEa3h5VHJjbllGZWlJcE9RLWNqR2ZHTnlGR0lRWG11eUpDUU9LUEZNd0poQThHZk8xTlJqaWNyYl9WYklvWHAzNzc4TFg4MHlxZ3J2N3hrWGVuWVlSUDNwTjBHVnU?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 10,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Iran - Atlantic Council",
+        "WASHINGTONExperienced",
+        "Mexicos"
+      ],
+      "locations": [
+        "Iran",
+        "Tehran"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {
+        "Iran - Atlantic Council": "NEGATIVE",
+        "WASHINGTONExperienced": "NEGATIVE",
+        "Mexicos": "NEGATIVE",
+        "the North American Free Trade Agreement": "NEGATIVE",
+        "Bashar al-Assad": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Iran US",
+      "title": "Iran’s War With Israel and the United States | Global Conflict Tracker - Council on Foreign Relations",
+      "summary": "back to map center for preventive action on february 28, the united states and israel attacked iran after weeks of military buildup and threats from president trump. large-scale strikes targeted iranian military assets and the islamic republics top leadership, killing supreme leader ayatollah ali kh",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMWduRExjZXhMUjFuYjV4Zzc0LS11OHVKUEhXSlpUNUdFMm9MVGlJeFd5eGh1ZWpEWWhFNEdJX0tOVTlJbnZ5NmpBQ3dYeGNpSTBOSWtISUduak5WSHhfQUhQcHBKbVpLdG1IVi1ySWVGd05NM18yektrem1TM3ZvaV9xVjR2eC04cE9RZ3FZajNCZWFHNzBaS0hhSS02dw?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 9,
+      "killed": 555,
+      "injured": 0,
+      "actors": [
+        "Global Conflict Tracker - Council on Foreign Relations",
+        "Map Center for Preventive Action",
+        "the National Council of Resistance of Iran"
+      ],
+      "locations": [
+        "Israel",
+        "the United States"
+      ],
+      "geo": {
+        "lat": 30.8124247,
+        "lon": 34.8594762
+      },
+      "sentiment": {
+        "Global Conflict Tracker - Council on Foreign Relations": "NEGATIVE",
+        "Map Center for Preventive Action": "NEGATIVE",
+        "the National Council of Resistance of Iran": "NEGATIVE",
+        "the United Nations": "NEGATIVE",
+        "the UN Security Council": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Iran US",
+      "title": "2026 Iran war | Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica",
+      "summary": "operation epic fury, which began on february 28, 2026, is the u.s. code name for its joint military operations with israel against iran. the opening salvo took out the heart of the iranian regime, supreme leader ali khamenei, and triggered a torrent of hundreds of retaliatory missiles and thousands ",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9GTnhfOUV2MndpMTFxdjZSeUpvMm1mRTVrNVZROVRoRHZyZjRCQzVpdzlPcVlWY2lTdEtuMTFEQ25Fd09mR3I4TU5RLTBzS3doUzR5d0VlY2piQQ?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 9,
+      "killed": 30000,
+      "injured": 0,
+      "actors": [
+        "Explained",
+        "Map",
+        "Irans Assembly of Experts"
+      ],
+      "locations": [
+        "the Strait of Hormuz",
+        "the United States"
+      ],
+      "geo": {
+        "lat": 47.8291375,
+        "lon": -122.5970742
+      },
+      "sentiment": {
+        "Explained": "POSITIVE",
+        "Map": "POSITIVE",
+        "Irans Assembly of Experts": "POSITIVE",
+        "The New York Times": "POSITIVE",
+        "Supreme": "POSITIVE"
+      }
+    },
+    {
+      "source": "Google Iran Israel",
+      "title": "What we know about the US-Israeli attack on Iran and Tehran’s retaliation - CNN",
+      "summary": "joint us-israeli attacks on iran have killed ayatollah ali khamenei, the countrys supreme leader for nearly four decades, thrusting the country into uncertainty and sparking a conflict that could draw in much of the middle east. donald trump announced khameneis death on saturday, and iranian authori",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBBcDlIRGhubVhZdVR2Rm9zaE15ZTdMbTZtSWpMaFFicU1xeUdEcWxCYUExR05ScXY5eGJaQnlKMTlCRktSUmJKcTZJakswbDJCYVhvXzYzbDJCMVFJU0JtMjBNM2dGWDVqWDFNY2dHOU11LXEtdmFkTQ?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 9,
+      "killed": 200,
+      "injured": 700,
+      "actors": [
+        "CNN",
+        "Israels",
+        "the US Embassy"
+      ],
+      "locations": [
+        "Tehran",
+        "Israels"
+      ],
+      "geo": {
+        "lat": 35.6892523,
+        "lon": 51.3896004
+      },
+      "sentiment": {
+        "CNN": "POSITIVE",
+        "Israels": "POSITIVE",
+        "the US Embassy": "POSITIVE",
+        "Ayatollah Ali Khamenei": "POSITIVE",
+        "the Defense Intelligence Agency DIA": "POSITIVE"
+      }
+    },
+    {
+      "source": "Google Iran Nuclear",
+      "title": "The US attacks on Iran have backfired horribly – but a path to peace is still possible | Simon Tisdall - The Guardian",
+      "summary": "executions by a vengeful regime in tehran are soaring. the west must pursue a different strategy hanging is the preferred method of execution in iran, although stoning and crucifixion offer alternative options for an ever-vengeful theocracy. death by hanging is not necessarily quick. strangulation a",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPa3pYRnZBM3AybnpfOGNpVkdyd0p2aExYdmR0T0pWNDJ0azNzcFpOeHM5YjlmVW9fSDkwdE5vRllyU3pYcVE3dUo5TS1HQjdValRvUUUyRmdKcHBfLXU4N0RQOE1fbC1uQldpbDg4cjFfRVczcjA3VE5GTl81d2VQMWJMNlZuSVg0a0E3MnNNV2R3UU5UeXRTbzhxYnFZck03cXZwcFhR?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 9,
+      "killed": 935,
+      "injured": 0,
+      "actors": [
+        "Simon Tisdall -",
+        "Guardian",
+        "Junes US"
+      ],
+      "locations": [
+        "Tehran",
+        "Iran"
+      ],
+      "geo": {
+        "lat": 35.6892523,
+        "lon": 51.3896004
+      },
+      "sentiment": {
+        "Simon Tisdall -": "POSITIVE",
+        "Guardian": "POSITIVE",
+        "Junes US": "POSITIVE",
+        "Amnesty International": "POSITIVE",
+        "Mehdi Hassani": "POSITIVE"
+      }
+    },
+    {
+      "source": "Google IRGC",
+      "title": "Iranian Proxies Attack US Troops In Iraq And Syria 13 Times In A Week - ایران اینترنشنال",
+      "summary": "american forces in iraq and syria have come under attack on at least 13 occasions over the past week, the pentagon has confirmed, by militant groups armed by iran. in a statement tuesday, pentagons press secretary brig. pat ryder said the incidents occurred between october 17 and october 24 and invo",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9pcmxhdnEtMzZtMHNlY002RVlwYUpoVHJLWFFqeTlqc3VRSGtXemZNRkRVUjhDSFBCbnNlQ01QSGI3cl93aGFLbmNkVDRUVjZoM3c?oc=5",
+      "published": null,
+      "event_type": "missile_attack",
+      "severity": 9,
+      "killed": 1400,
+      "injured": 0,
+      "actors": [
+        "US Central Command",
+        "the Islamic Republic Guards Corps",
+        "Pentagon"
+      ],
+      "locations": [
+        "Syria",
+        "Iran"
+      ],
+      "geo": {
+        "lat": 34.6401861,
+        "lon": 39.0494106
+      },
+      "sentiment": {
+        "US Central Command": "NEGATIVE",
+        "the Islamic Republic Guards Corps": "NEGATIVE",
+        "Pentagon": "NEGATIVE",
+        "IRGC": "NEGATIVE",
+        "Hezbollah": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Iran US",
+      "title": "War on Iran: US’s history of making other nations pay for conflicts - Al Jazeera",
+      "summary": "white house says trump could ask arab nations to bear the cost of the iran war. save share trump interested in asking arab countries to pay for war on iran. analyst: israel should pay president donald trump is considering asking arab countries to cover the cost of the us-israel war on iran. white ho",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbUJfODlNLWNDd3lRZTBKWFNyOUpSakVTakFPLWo3bGdadXRibXZZX3k1ekthcG1DRERLakdRdXZBcWljZ0ZGdTBZaHBucTBLZjlPTUZiQ0RFZFRNck1vV0dhNzhTbS1LU0VQRmZFSy1MQi1KUWh6enF0ODdsSkJLTzRma1ptenlQZHN2MzdXeXhsLWhfeGlpeFNJb0xVdHNEMk9DQmJ3WXhDZ9IBrwFBVV95cUxOR2FHNXhEMFZZYmJyb0R0emdURDlwekhsU3JtT29QS1hUTDRVWWZZSUMwR1pZTHNxQmhqODFCbzVaQWFKV2tySGNhYUNpVFJjWTV0cDgwY21Zb3doSTNISGJUOXFEaXg4YS10T3Y5T3BaS2k2UFRkdnRWVjFzM3c1Z1FnZWd5UVFLd1BWOENKcmFFNktiOXY5VjMzeDdnN3FVUjlvX3piZDBabXpzTWdv?oc=5",
+      "published": null,
+      "event_type": "missile_attack",
+      "severity": 8,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Al Jazeera",
+        "Trump",
+        "Donald Trump"
+      ],
+      "locations": [
+        "the United States",
+        "Iran"
+      ],
+      "geo": {
+        "lat": 47.8291375,
+        "lon": -122.5970742
+      },
+      "sentiment": {
+        "Al Jazeera": "NEGATIVE",
+        "Trump": "NEGATIVE",
+        "Donald Trump": "NEGATIVE",
+        "White House": "NEGATIVE",
+        "Share Trump": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Iran US",
+      "title": "US says Trump ‘interested’ in asking Arab countries to pay for war on Iran - Al Jazeera",
+      "summary": "white house spokesperson karoline leavitt says passing the conflicts costs off to regional states is an idea that trump has. save share the white house has suggested that us president donald trump will ask arab countries to cover the cost of the united states war against iran, estimated to be in the",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOTDFJdHc0d3BVUkg0Y0o4Y0V2WlhiVWJNenU3eHExMmNfaUJXUjF4LTRRZjh2U1BodG50cDRzZ2gwbVZaXzZCVkNpekl4aW5ROE5VSnlqekxfUzdwVjZVa3hJcTZZcmwxS1JXbXMzZnZjWUxaQVVmdmNlUWxzZlg3UXVyc0NEMTJVY202cnJPbjJ6ZjExMzRYOXA0aGl2WkFtVUNxdDJQa2drZjFDRWE0bVQxd9IBuAFBVV95cUxQZF9YNFdYQUstem1jakZVaXlnaXBYTURCWkVKanhWMzNpT3lKQzRDQjdPQzMwcU9ZUXdjZU9QeEZSWkRvcHNxaG9kNGdfRUVIWUZRWXBUejZqRVNzZHM5ZzY3RjcyQmJsM192S0p3dlNEVDJ4U2pfTXVXUm5nbkVyczVmb0d0NGw4TS1lOWc1UW5mQUNEbHJzWHg1WUlEVVVtcS1COUk2YUlXZXpMcFZtZFZIRDhyQVpV?oc=5",
+      "published": null,
+      "event_type": "missile_attack",
+      "severity": 8,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Trump ‘",
+        "Karoline Leavitt",
+        "Trump"
+      ],
+      "locations": [
+        "Iran",
+        "the United States of America"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {
+        "Trump ‘": "NEGATIVE",
+        "Karoline Leavitt": "NEGATIVE",
+        "Trump": "NEGATIVE",
+        "Trumps": "NEGATIVE",
+        "Donald Trump": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Iran US",
+      "title": "What Happened This Week in the Iran-Israel-US Conflict? - Morocco World News",
+      "summary": "home headlines what happened this week in the iran-israel-us conflict iran, us, israel flags. rabat the war involving iran, israel, and the united states has entered a volatile new phase after a week marked by intensified airstrikes, high-profile killings, retaliatory attacks, and mixed signals on d",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPODRfb2RSNDdoTUFXVXdZQzNSZm5CaGcyMzZmVng5U3pjaExMcEMtWXpBWkszdGhRMXVPMFFMTDRXRXdJQTRlamVkWWZHY01yZEZHOEg0dG9vSndKZ3B5eUpqdGpCczhqbFlnSXdqVEZxQ3hIN1lwSHpTdVVtOTBZQ0RkUFAxZlFQQkpCRHhHSFg2M3hnSWtBQmZBYzZEaUZEZjNYNFNR?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 8,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Morocco World News",
+        "Alireza Tangsiri",
+        "Ayatollah Ali Khamenei"
+      ],
+      "locations": [
+        "Iran",
+        "Israel"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {
+        "Morocco World News": "POSITIVE",
+        "Alireza Tangsiri": "NEGATIVE",
+        "Ayatollah Ali Khamenei": "POSITIVE",
+        "Ali Larijani": "POSITIVE",
+        "Pedro Sancehez": "POSITIVE"
+      }
+    },
+    {
+      "source": "Google Iran US",
+      "title": "Russia, China and the US – the global winners and losers of the Iran war - bbc.com",
+      "summary": "from soaring heating oil bills for homes in yorkshire to bill-saving school closures in pakistan, the financial fallout from the war in the middle east is already being keenly felt. it is increasingly clear that the impact of tehrans retaliation, designed to trigger economic disruption and damage, m",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBLT3FrLXVudXZLVndxMFJucm0wMWlOaXQ4V214Ni0tRmplTVBUTEZvQUdSR0N5SXFBSGJnNmNQWmNVTlFpQkxvdnRKNmZlNjFaOFpKOF9FOVNyZw?oc=5",
+      "published": null,
+      "event_type": "missile_attack",
+      "severity": 8,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Canadas Energy",
+        "Oxford Economics",
+        "ExxonMobil"
+      ],
+      "locations": [
+        "Russia",
+        "China"
+      ],
+      "geo": {
+        "lat": 64.6863136,
+        "lon": 97.7453061
+      },
+      "sentiment": {
+        "Canadas Energy": "POSITIVE",
+        "Oxford Economics": "POSITIVE",
+        "ExxonMobil": "POSITIVE",
+        "Tim Hodgson": "POSITIVE",
+        "Donald Trump": "POSITIVE"
+      }
+    },
+    {
+      "source": "Google Iran Israel",
+      "title": "US, Israel bomb Iran: A timeline of talks and threats leading up to attacks - Al Jazeera",
+      "summary": "military operations by the us and israel in iran mark the most intense escalation since the june 2025 war despite several rounds of indirect us-iran talks. save share the united states and israel have launched strikes on iran despite ongoing talks between washington and tehran over irans nuclear pro",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOamZqMEdieVVXM2lYM1dMN1Vaelg1MmxoeFppTVFDNHd6U1pKNzZKMUdHb1RVUm1KVnhMaXRxejREZXo3SVhpbG9GcUZQMWhGbjgybUo1Z2dnc1RmcVFPbDlIazdabG1HeVBSekVILURlLWE1cnVtZjNOMzZPTnFsUmtDc0ZseU5Td1dOblcxMURfdWZVdXQtWG1qUkp5b1hycFRkelNKZGRlTWR3Nmt0RjlfOFbSAboBQVVfeXFMT2hPQXI1SlZaOXpJRFFwdl9KVXRrVzF2SHc2dUZsNzBPYTlxeEJVaDFFYmd3dTFHWTB1a016X09HQllyYi1zSG1JaGt1RktfdmRXb2xxNGNKREhseEd2ajhQSmFtX3Uya3NoMV9uTF9FRTcxSlo4Y1FSTzRfcG1lbHBtVXhzWDFqZ3BHUndsc05IR3ZieGd6YlN4aWx0ZXdIYUhic2RralVxeEt6WlBRbjQwYXJZMjh6LVJn?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 8,
+      "killed": 28,
+      "injured": 0,
+      "actors": [
+        "Al Jazeera",
+        "Al Udeid",
+        "USIran"
+      ],
+      "locations": [
+        "Israel",
+        "The United States"
+      ],
+      "geo": {
+        "lat": 30.8124247,
+        "lon": 34.8594762
+      },
+      "sentiment": {
+        "Al Jazeera": "NEGATIVE",
+        "Al Udeid": "NEGATIVE",
+        "USIran": "NEGATIVE",
+        "United Nations": "NEGATIVE",
+        "Abbas Araghchi": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Houthi",
+      "title": "Iran war: Houthis claim attack on Israel, Zelenskyy in UAE - DW.com",
+      "summary": "yemens houthi rebels say they have launched two attacks against israel, vowing more. meanwhile, ukraines volodymyr zelenskyy has announced defense cooperation agreements with qatar and the uae. this blog is now closed. for the sunday latest, please read here. here are headlines regarding the us-isra",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOMFl0Vktka2p5d0ExZHIzOVVpd2J0MXIzV05BbVFiMDAtLUNxWW1GQ3k1WUxYRUV4OEVVckY0TW1hMlNRdUhmR3Q4WGo1cGhTd2ZCaTdiY2dLbjBtNjBHY1RLcTF4ZkdHQmRCc09CYVdMR3hYX2lNQlBpb3EyT1lMcE1JT1Q4Tm56Zm01dlF4NEZkVktnZ0Rz?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 8,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Houthis",
+        "pro-Iran Houthi",
+        "Ukraines Volodymyr Zelenskyy"
+      ],
+      "locations": [
+        "Iran",
+        "Israel"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {
+        "Houthis": "NEGATIVE",
+        "pro-Iran Houthi": "NEGATIVE",
+        "Ukraines Volodymyr Zelenskyy": "NEGATIVE",
+        "Hormuz": "NEGATIVE",
+        "Abbas Araghchi": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Houthi",
+      "title": "Day 29 of Middle East conflict — Iran-backed Houthis enter war, firing missiles at Israel - CNN",
+      "summary": "follow the latest updates on the war with iran here. iran has a new demand to end the war and it could bring in billions irans efforts to mount attacks against us extend far beyond its military. heres what to know seven islands that hold the keys to the strait of hormuz houthis enter war: yemens ira",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE44a0tINlhLYXQ3UHo0TGhkNDRBNm80T0picjlkWTY3VzdrbFRZTnVnVDVwWEg4T095MzdfT1FUWTlSWWxxdHgtdGtMRF9IN1pQY19ub0stZXJJbUNLSHA4cGp3Y0xLTXNCbmRqcTAwOF9oT1Nsd1hOYkZmWQ?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 8,
+      "killed": 28,
+      "injured": 0,
+      "actors": [
+        "Israels Home Front Command",
+        "Israels",
+        "Houthis"
+      ],
+      "locations": [
+        "Israel",
+        "Middle East"
+      ],
+      "geo": {
+        "lat": 30.8124247,
+        "lon": 34.8594762
+      },
+      "sentiment": {
+        "Israels Home Front Command": "NEGATIVE",
+        "Israels": "NEGATIVE",
+        "Houthis": "NEGATIVE",
+        "Hormuz Houthis": "NEGATIVE",
+        "Irans Islamic Revolutionary Guard Corps": "POSITIVE"
+      }
+    },
+    {
+      "source": "Google Houthi",
+      "title": "Houthi forces enter Iran conflict with missile attacks on Israeli military sites - The Guardian",
+      "summary": "escalation represents dangerous spread of war and brings threat of even more damage to the global economy middle east crisis live updates parents of iran school bombing victims describe their worst day the us-israeli war with iran has expanded with the entry of houthi forces in yemen, representing a",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQS0RTS2pPUloya2sxVi0zLXdVSEZXWjB6Q0NKaWJJLWRHMktwdzNNb0QzakRfclE2ckZQWEtLRW4xWXZYRS1GY2ViOXV6bktJVWxHNl9zSkFQN0xRQW93X0pQTDVUTEpWSEJQbW5zdmNDS3ZYaHA2UlhLUzlEVW9fQThXajIxN1JDYmtoaUQ1QnVpMlh2YXhjWnN4azlTUk55VUtmemdkUF8xbi16V3MtVE80Vk9kRWs0azgtU1FUcjNuYzlv?oc=5",
+      "published": null,
+      "event_type": "airstrike",
+      "severity": 8,
+      "killed": 0,
+      "injured": 12,
+      "actors": [
+        "Guardian",
+        "Houthis",
+        "Hormuz"
+      ],
+      "locations": [
+        "Iran",
+        "Israel"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {
+        "Guardian": "NEGATIVE",
+        "Houthis": "NEGATIVE",
+        "Hormuz": "NEGATIVE",
+        "Yahya Saree": "NEGATIVE",
+        "Farea Al-Muslimi": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Houthi",
+      "title": "Houthis threaten to join war if US-Israeli escalation against Iran continues - thenationalnews.com",
+      "summary": "live updates: follow the latest news on us-iran war yemens iran-backed houthi rebels on friday warned they would join the war in support of iran if us-israeli escalation continues or if other countries enter the confrontation, risking a return of the red sea to the line of fire. we affirm that our f",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPU25WNF9iclVUb0RDb2tzTnJkc2hfdWxKLXd0TmJpMVVWV2dEdzdGb0ZweG4wUFc0Yk10Y0N1M0JzVXhsbWFuaTBKOUNRb3ZDLTJYZUtxczRKSGhQTDY1bndjQVF3ZkVxcG54WHBPT3hrMjBrZDZlVWFiOHR2dDNjTmJnaF9sRU1aZ0RzaTEyTHBMVDM1MVp3eFlncGEyY1VCMnE4Mjc5OEhSVnFKYWNvNmxSRXBOb21mRENPQmkxTFptTUdqbDl5QXF2UGQyMEZYTDh0V3RJT0wxeG8yUEE?oc=5",
+      "published": null,
+      "event_type": "missile_attack",
+      "severity": 8,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Houthis",
+        "Yahya Saree",
+        "Hormuz"
+      ],
+      "locations": [
+        "Houthis",
+        "Hodeidah"
+      ],
+      "geo": {
+        "lat": 14.7978677,
+        "lon": 42.9544872
+      },
+      "sentiment": {
+        "Houthis": "NEGATIVE",
+        "Yahya Saree": "NEGATIVE",
+        "Hormuz": "NEGATIVE",
+        "Bab Al Mandeb": "NEGATIVE",
+        "the Axis of Jihad and Resistance": "NEGATIVE"
+      }
+    },
+    {
+      "source": "BBC Middle East",
+      "title": "Is Trump's pause on attacking Iranian energy for diplomacy or an escalation?",
+      "summary": "is trumps pause on attacking iranian energy for diplomacy or an escalation donald trumps decision to pause any attack on iranian energy plants for a further 10 days could be a pivotal moment in a conflict that has now lasted almost four weeks. the us presidents commitment to deadlines is fluid - thi",
+      "url": "https://www.bbc.com/news/articles/c2evg2m3ye2o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-03-27 13:17:22.141000+00:00",
+      "event_type": "diplomatic",
+      "severity": 7,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Trumps",
+        "Trump",
+        "Donald Trumps"
+      ],
+      "locations": [
+        "Iran",
+        "the Middle East"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {
+        "Trumps": "NEGATIVE",
+        "Trump": "NEGATIVE",
+        "Donald Trumps": "NEGATIVE",
+        "the White House": "NEGATIVE",
+        "Wall Street Journal": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Al Jazeera",
+      "title": "Russia imposing ban on all gasoline exports due to Iran war",
+      "summary": "",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/1/russia-imposing-ban-on-all-gasoline-exports-due-to-iran-war?traffic_source=rss",
+      "published": "2026-04-01 13:24:29+00:00",
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [],
+      "locations": [
+        "Russia",
+        "Iran"
+      ],
+      "geo": {
+        "lat": 64.6863136,
+        "lon": 97.7453061
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Al Jazeera",
+      "title": "‘Permanent scar’: Iran minister on US-Israeli attacks on monuments",
+      "summary": "",
+      "url": "https://www.aljazeera.com/features/2026/4/1/irans-minister-civilisational-identity-under-fire-in-unprecedented-war?traffic_source=rss",
+      "published": "2026-04-01 12:45:21+00:00",
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [],
+      "locations": [
+        "Iran",
+        "United States"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Al Jazeera",
+      "title": "How are NATO allies pushing back against Trump’s Iran war demands?",
+      "summary": "",
+      "url": "https://www.aljazeera.com/news/2026/4/1/how-are-nato-allies-pushing-back-against-trumps-iran-war-demands?traffic_source=rss",
+      "published": "2026-04-01 12:03:47+00:00",
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "NATO",
+        "Trump"
+      ],
+      "locations": [
+        "Iran"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Al Jazeera",
+      "title": "UK PM says war on Iran will impact Britain’s future",
+      "summary": "",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/4/1/uk-pm-says-iran-war-will-impact-britains-future?traffic_source=rss",
+      "published": "2026-04-01 11:57:12+00:00",
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [],
+      "locations": [
+        "Iran",
+        "Britain"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Al Jazeera",
+      "title": "‘US attacking Iran’s nuclear facilities is a sign of endgame’",
+      "summary": "",
+      "url": "https://www.aljazeera.com/video/quotable/2026/4/1/us-attacking-irans-nuclear-facilities-is-a-sign-of?traffic_source=rss",
+      "published": "2026-04-01 10:33:34+00:00",
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [],
+      "locations": [
+        "Iran",
+        "United States"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Al Jazeera",
+      "title": "War on Iran: Three key takeaways from Araghchi’s interview with Al Jazeera",
+      "summary": "",
+      "url": "https://www.aljazeera.com/news/2026/4/1/war-on-iran-three-key-takeaways-from-araghchis-interview-with-al-jazeera?traffic_source=rss",
+      "published": "2026-04-01 08:27:51+00:00",
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Al Jazeera"
+      ],
+      "locations": [
+        "Araghchi",
+        "Iran"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Google Iran US",
+      "title": "Sky News Australia. . US Secretary of War Pete Hegseth discusses the conflict in Iran and the declining “morale” among the Iranian military. - Faceboo",
+      "summary": "us secretary of war pete hegseth discusses the conflict in iran and the declining morale among the iranian military. sky news australia",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPN3dhZ2IyVGZ1THZaMS1Xb1VtSmNKaFR5NjdtSndLYkk4cG9rc0JUOU9RX3Z4cGhpbWZyR0pQaGhia1JfamVEVm1qR3NLcDU1RlJRZmpHazBhWDkyd21zVU1EV0dPRkZrOWZfSFdKS0tFNk1CeW1TcElDQ1ltOEhEbGI4cEpvc0pzMG1VYkZyUm9LZGdCTUJ1ZWNKWlhkODhJN25qc0pmSkJ4WGVjMkJVcEtzR09sWmgwLUI2TXA1bXBUX3JiZFhtblZoY1EtQ0ZfMjFEVEVSYTFuN3JyLWdj?oc=5",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Pete Hegseth",
+        "Sky News"
+      ],
+      "locations": [
+        "Iran",
+        "Australia"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {
+        "Pete Hegseth": "POSITIVE",
+        "Sky News": "POSITIVE"
+      }
+    },
+    {
+      "source": "Google Iran US",
+      "title": "Iran War: Trump talks of Operation Epic Fury's endgame in two-three weeks without Tehran pact, gives D-St - The Economic Times",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQVEpoM3BuZzlQM09ScUQyNkswZHpqSWNDTTRGbDBYcHZrOEZsWktCRHJIblhwUTJ4N1BCY0FWNEFLRmw3UG03RDg5bnREODVMN1kwd2xIc3lUNHVSdmRZeFhkU252YXZlVHAwbWJ1bHdjTlV0akg3QW1sTUxnajctMnAxcTVPVS1PTjhDYVV6WVlyZmE2VTBNQjZXeG9KMXFySEh3cVlKMVpnNGRwX2RXUDVUQWFqYlJKd3ZSVVNHSUU0aUVSd0xMMDVFVnJXREliZmJHWEpBOFJaLUhUb3hTSTV1TDNRSkx30gHuAUFVX3lxTE15VGFiWWJxRkhQMU5Ec0NIQVRxUGZiSDJ6SDl2TWtzOXZCaXZlSHlWdnFuZkdhdUpoSHYtVGM3MFlqRzF0bm94WldUSnVHWnFqQVJuM3lNUjI4ZUl2R2FHQnB1WGU4ZXgxSjZ2RkJ6ck4tN3hQUmxiaVoyWlI3MVRMNmdlUk9Bck9HSkpmeFN2eVpCaVJSeE1yMHZ4SFY3SXZuTmV0V3hBNzFjeWpUSWdkSmJPbGlZZERSZ3AyX29wVXRfNWdydmQ2UERyQWV3OW5sT1VfQUNPLU9xYl9wSlRhZ3Y5OTF4UE9RcWVPSVE?oc=5",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [],
+      "locations": [
+        "Tehran"
+      ],
+      "geo": {
+        "lat": 35.6892523,
+        "lon": 51.3896004
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Google Iran US",
+      "title": "Iran war is both a boost and a threat to Australia's LNG - Reuters",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPbF8zQnNWRVhvOVlwTVByNTZpTC1GaTZiVlFFck0zSjFzN3FnbDVYQWdkWVc3cVBhSFE1cmRma3pLWndVSGtGNFpWVk50VmtRRW56VFYwaWgzaDJySFcxV0FlT3FvUUZBVzFlWGV4U2RuVWRpem5KMTdPQkliVkpfU3hfYmR4NUxvVHdBRTg2eUVVSTdLTDNaWWx1dE1TeTI3T3c?oc=5&hl=en-IN&gl=IN&ceid=IN:en",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "LNG - Reuters"
+      ],
+      "locations": [
+        "Australia"
+      ],
+      "geo": {
+        "lat": -24.7761086,
+        "lon": 134.755
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Google Iran US",
+      "title": "Iran war: What is happening on day 15 of US-Israel attacks? - Al Jazeera",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQempZYXZOZXBHVzRTMENFaF9ZTUJwaG44NHU4anE0TUh0UW5IaS1nMDNmTmNaZUdsX0VZT3ZHS05tNjBQYi1GR2JCeDlGbGU5QzQtSnY3MEFNcmVfRzR1djZteTBpNmd6SHo0d0lRN2ljRDhLSGZfZXRETHNLLUpSTDZZNGEwbUZ2NndkNUFzcmxCdDlMWmtKbFRBQTRtMGvSAaQBQVVfeXFMTkNTemktVnR6SkF6LTFXTGEyWTlaWTN2clRXakVEWmlvay1KUHVOcGU2M0x3bFRqSVNsNHVxV1J4TXFCcGNuN2tKeWI3U253aEpYRVktV3EtOGF1cXhyUFdHVnNlTmpadFdaLXcyOGZkOUtRZU9VM0NHaW9WMGpmQ3dUSmZhUG5RMzBWbjJqSjZuNVVYX3R4MUdXemluS2tUX0JqUFY?oc=5",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Al Jazeera"
+      ],
+      "locations": [
+        "Iran",
+        "Israel"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Google Iran US",
+      "title": "Now that the Iran war is here, the US must complete its mission - Atlantic Council",
+      "summary": "now that the iran war is here, the us must complete its mission - atlantic council",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOSnhmbVVESXhvU25hNkhTU3dHNGMxSlZVbmVLc1h2bFROMWxNU2lqeVE0dGNwVmxYT1gydVFfZlBvYlA3WVZvbDhwSWZTbWpxUnJWTDlud0c4bWhaQlVoaW84LTQ3cExTTGkyS2RFOXluRGRFb0c1aGR3bWluaFVGN1REcGtpRkh2bmU4QXhSMnRIMWo1cmZRdklRNnktcWhab0JOUnNDcHNlcGVqNmtDRjlZZnpKYVZudU5vbmVSWE9JWHQtOGFV?oc=5",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "mission - Atlantic Council"
+      ],
+      "locations": [
+        "United States"
+      ],
+      "geo": {
+        "lat": 39.7837304,
+        "lon": -100.445882
+      },
+      "sentiment": {
+        "mission - Atlantic Council": "POSITIVE"
+      }
+    },
+    {
+      "source": "Google Iran Israel",
+      "title": "Looking back at Israel and Iran's ‘12-day war’: Direct conflict breaks out between arch-enemies - France 24",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQRUgtelhraFVfczhfSUM1RHNqU2NQekRyZ3FEaFlGemdiUUFiWnR4cVJxMWtuMzhWSjFTSmQ3TTl3MWk1b0xVY2huMkFLU3FleTltbHpEaThsdWR2X01wajlJR25qSV9lZEU2b25lZl9TQjZHaE9WZVk2RTdxSlcxQlN1V3I3N0RoY0lZdWpuMVFiWTdqaWpucG8tVUZHSkpvR0FWbXJaZU52UTN2XzRKQ0pha0t3dDRpZ0dUNkJjUHlnWlpjVXpBRGhXVHg?oc=5",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [],
+      "locations": [
+        "Israel",
+        "Iran"
+      ],
+      "geo": {
+        "lat": 30.8124247,
+        "lon": 34.8594762
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Google Iran Israel",
+      "title": "What to Know About the U.S. Strike on Iran and the Israel-Iran Cease-Fire - nytimes.com",
+      "summary": "nytimes.com please enable js and disable any ad blocker",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOcnh5bzc0TndocDJsMzUyWmppX1BJSUg2WnpyUUtGamZjMFpsT1ljc1lhNzNncHRLTWVqR0JiZDhNVnRNUEdGREZEejBQcEt0ZzQySjdvVmlwV1otOGFKLS1iSDBzcllqN19zSHRMUm9pTDQzcmd6Rlo5Tm1GUW9WWHBR?oc=5",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "the Israel-Iran Cease-Fire - nytimes.com",
+        "the U.S. Strike"
+      ],
+      "locations": [
+        "Iran"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Google Iran Israel",
+      "title": "Five academics and former diplomats on U.S. strikes, Iran and stability - NPR",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPY0FZMHBibXhmcVJGQkxQQkNCRkhmMlVJMktRdmV5MnpGWnVfSEZaQ3JRTkpxVl9LUnk1dFlSMWlNRFE3X09VNjdOZTZ2S0ZET2lhN3lfSVJQWGU0RXpLOU9wU0diTnFvOWxUTUFlNlRLeU8wbEs2N2x2NUwtTGZNelJ1a2lfOXBicGx1ZGVQMmY0amx4dXc?oc=5&hl=en-IN&gl=IN&ceid=IN:en",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [],
+      "locations": [
+        "Iran",
+        "United States"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Google Iran Nuclear",
+      "title": "US strikes may have turned Iran from a state with latent nuclear capability into one with a nuclear grievance - LSE Blogs",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPOVA1ZGE3Ykt5bjc1akRUOVVsbFVWd2FWOHdGbkhxc1pCR2VXT1BEZ2hHM3lycWx1bzNnSlFrU3NLRHJENTZmTndVT2MteFRtRXR4Ml9PYTlRMkhEUjd2MGJ2NkNfM3N6dGRIZEtUN1JkN3dKOXZ5aFoxUnVQZWNFV3ltajN3N2xBcS1DMTkxSzBMM2FKZ2kyTHNCdjRaZ2hpak1JYWxCWHlMSHUzSS1pSm1XMkx1eDJSZHotOVlFWEpsUEJYTWMtcTg3ZzFKUmtwZ1l2ck4tT3hlLTNoRHdZNUJjZXZEdTZsMDZJ?oc=5",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [],
+      "locations": [
+        "Iran",
+        "United States"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Google Iran Nuclear",
+      "title": "The global implications of the US strikes on Iran - Brookings",
+      "summary": "the global implications of the us strikes on iran brookings",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQVzdhdjNSWVRPNFlqUmluZEtSRDJrV0gyWjZjUlp6VGREcGVXR3hOcFgxcFc0eU4tY0o4bXRFM3ZBNm15QkVBZjRubXpjVFhpMkJ3aGxYOEUwV1JxX0JsTUVjWGpaLTc4cGJHZ0huZEw3ajU1UmNkbUtGdFhiN3p3V0czNy02U3RUY3R2MEJB?oc=5",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [],
+      "locations": [
+        "Iran",
+        "United States"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Google Iran Nuclear",
+      "title": "What to know about the U.S. military's intervention in the Israel-Iran war - PBS",
+      "summary": "what to know about the u.s. militarys intervention in the israel-iran war pbs news",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxORWN2SS1xTVNNR2hVT25qYU9kM3NaUXNsSW10ZEJqMXBlbkVvLWtJYnRZLVpGMnNqTEEwcFRhUFgzLV9mSkRhbmhqNi10Z3pGX0U4ckhSWU1TWDNwU2ZCVnNDNzh6TG1ONXIwSUQ2YW5SbnVPanRVdVlhYmxaaFNlTnI2ZHJRN3c5U3IxaDdBTE5iTUtMTGNiMk5LZHRrM3MydTVsZG5nNk80d2_SAbABQVVfeXFMTm01OEhHcERUalZXb2lXSXk1TGlqX1hzLU9FZHRvOGJIS0t2M1N5NFg0YV9WY3M5by1EWHBhdE1EX3ZGZzJxMmczTTM1OXdWd0pqRXQwNUdqYU9Eb0dmbEtrSk92Z00yVFk2VEtNS2tCOGVId0tQLXFxbWdlQS10ejQzcjMyUWZNQ3h6TlNvay0yS185V1dMaGs1MmNGaGcyU0o1Zld6MmtzTUxUdFdIRk0?oc=5",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "PBS News"
+      ],
+      "locations": [
+        "Israel",
+        "United States"
+      ],
+      "geo": {
+        "lat": 30.8124247,
+        "lon": 34.8594762
+      },
+      "sentiment": {
+        "PBS News": "NEGATIVE"
+      }
+    },
+    {
+      "source": "Google Houthi",
+      "title": "Iran-US war latest: Ship carrying thousands of Marines arrives in Middle East as Yemen’s Houthis warn of more attacks - The Independent",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNZ04yMmdlMzNYOFYtQVk5c2NHMnN4OFR4a21pRm96T0dKQW1DVzdYT1hFWUpZM0NaSFA4VERpdmNUNXpHaTJHdHRlRHNIUTNmcjdHZkVKakxHSDFqYldCUGF0dkVNVTQ2Uk9FZzRtQUcxQW8xTUV5QlhCczZabU1GU09Tc29MaTlWcDZBdmdKMGZJZTd3NVdieENrVFYtYW1TTjNnTktwUGtHX0ZtTVZqTDVtZlBPZzJnN0Z3?oc=5",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [],
+      "locations": [
+        "Iran",
+        "Middle East"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Google IRGC",
+      "title": "US Again Strikes Iran-Backed Weapons Facility in Syria - VOA - Voice of America English News",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQWnAyQmNIMXJtbG9ncGVOdm1UNS1ZRzA4OXF0SXJTbWJZWFJHVzBwWTRQdzV2WHQ4T2QzTHNIZEdrZEZCaEJNVWp1ZWdnRFAwbFBPbUVvX2I2RW1QaVpaOHlFRVZIQ0stOEVLcE9MalBTNlFWNjFVOHVINWhvRFFFQWxGSU14cENERi1pZGQydTlqSVlEQ2NYeNIBmwFBVV95cUxPNWRmckVqR0UtOWpDNGFFWk83NWUxMDdmWFZnUl9LRFJkcFE3b3AwaHVpZWdPcms3N0RZbVFyYlY2a09fX29fdDVrM3VoTnU5LTRwNjJKa3VBQ3VseVhQVUhqRjh1M0lnUWhZbERKM2tRSW95YVlVM2ZPLUxHQm9JSXd6SGpNOWNZcWVMT29oeWZVa1l2N2tCdFdkYw?oc=5&hl=en-IN&gl=IN&ceid=IN:en",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "VOA - Voice of America English News"
+      ],
+      "locations": [
+        "Iran",
+        "Syria"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Google IRGC",
+      "title": "U.S. Strikes Iranian-Linked Targets in Syria (Published 2023) - nytimes.com",
+      "summary": "nytimes.com please enable js and disable any ad blocker",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOMmpIYm4wakRwbFlGcUU1NHhDT0NTVjZyLW15bWxOX1lHRVJXX21qUEgxLVZyV0ZVSWRNVExWN3g3ZGM0LWhkSDJnOWE0WnhBOTdFR3ZWT3R2YkM4bkhFcVQtVE5vRWVCT3h0eDB5TGJKaW8tQVRJYXdNaGxYbWdlQ3N1elY?oc=5",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [],
+      "locations": [
+        "Syria",
+        "United States"
+      ],
+      "geo": {
+        "lat": 34.6401861,
+        "lon": 39.0494106
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "Google IRGC",
+      "title": "Iran has attacked US troops 83 times since Biden became president - Task & Purpose",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE84bUNfUDJJV21xV3pIVi12REh0SG51YzZ3bVRWb0s5ajJjSlRsY0JKN1g0Ul8xamQ4ZFY2Q2x4VEF0Ykk5X3N5bVFKR0J6aGV1WFVZRTF3NGtMcEhrZmlzWDNyanBpT251aWJUVjFpN19nelRYdF90MElpek91ejA?oc=5",
+      "published": null,
+      "event_type": "general",
+      "severity": 5,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "Biden"
+      ],
+      "locations": [
+        "Iran",
+        "United States"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {}
+    },
+    {
+      "source": "BBC World",
+      "title": "Iran war economic shocks will last 'months', says Australia's PM",
+      "summary": "iran war economic shocks will last months, says australias pm australias prime minister has warned the economic shock from the war involving iran will be with us for months, as he delivered a rare televised address to the nation. speaking on wednesday, anthony albanese said the conflict had driven t",
+      "url": "https://www.bbc.com/news/articles/cvg4nre8nl9o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-04-01 10:53:03.013000+00:00",
+      "event_type": "diplomatic",
+      "severity": 3,
+      "killed": 0,
+      "injured": 0,
+      "actors": [
+        "bush",
+        "Covid",
+        "Anthony Albanese"
+      ],
+      "locations": [
+        "Iran",
+        "Australia"
+      ],
+      "geo": {
+        "lat": 32.6475314,
+        "lon": 54.5643516
+      },
+      "sentiment": {
+        "bush": "POSITIVE",
+        "Covid": "POSITIVE",
+        "Anthony Albanese": "POSITIVE",
+        "National Fuel Security Plan": "POSITIVE"
+      }
+    }
+  ],
+  "cluster_summaries": [
+    {
+      "cluster_id": 3,
+      "num_articles": 3,
+      "summary": "Australia's Prime Minister has warned the economic shock from the war involving Iran will be with us for months, as he delivered a rare televised address to the nation. Anthony Albanese said the conflict had driven the biggest spike in petrol and diesel prices in history, and households were already feeling the strain. Australia is not an active participant in this war. But all Australians are pay",
+      "titles": [
+        "Iran war economic shocks will last 'months', says Australia's PM",
+        "Sky News Australia. . US Secretary of War Pete Hegseth discusses the conflict in Iran and the declining “morale” among the Iranian military. - Facebook",
+        "Iran war is both a boost and a threat to Australia's LNG - Reuters"
+      ],
+      "sources": [
+        "Google Iran US",
+        "BBC World"
+      ],
+      "dates": [
+        "2026-04-01"
+      ]
+    },
+    {
+      "cluster_id": 14,
+      "num_articles": 1,
+      "summary": "How Pakistan won over Trump to become an unlikely mediator in the Iran war Pakistans role as intermediary in this conflict took many by surprise. But perhaps it shouldnt. The head of its armed forces, Field Marshal Asim Munir, is in US President Donald Trumps favour. The US leader frequently refers ",
+      "titles": [
+        "How Pakistan won over Trump to become an unlikely mediator in the Iran war"
+      ],
+      "sources": [
+        "BBC World"
+      ],
+      "dates": [
+        "2026-03-31"
+      ]
+    },
+    {
+      "cluster_id": 4,
+      "num_articles": 2,
+      "summary": "The US president has paused any attack on Iran's energy plants for a further 10 days. The US president's commitment to deadlines is fluid - this is his second extension of this particular threat - but he uses them nonetheless for a purpose: to send signals, to distract attention and to buy time. Take this latest promise to hold off a threate",
+      "titles": [
+        "Is Trump's pause on attacking Iranian energy for diplomacy or an escalation?",
+        "How are NATO allies pushing back against Trump’s Iran war demands?"
+      ],
+      "sources": [
+        "BBC Middle East",
+        "Al Jazeera"
+      ],
+      "dates": [
+        "2026-03-27",
+        "2026-04-01"
+      ]
+    },
+    {
+      "cluster_id": 15,
+      "num_articles": 1,
+      "summary": "Our home is gone': BBC speaks to displaced families in Lebanon",
+      "titles": [
+        "'Our home is gone': BBC speaks to displaced families in Lebanon"
+      ],
+      "sources": [
+        "BBC Middle East"
+      ],
+      "dates": [
+        "2026-03-28"
+      ]
+    },
+    {
+      "cluster_id": 11,
+      "num_articles": 2,
+      "summary": "US is 'negotiating with itself' says Iranian military following Trump comments,US messages via Witkoff and intermediaries are not negotiations: Araghchi",
+      "titles": [
+        "US is 'negotiating with itself' says Iranian military following Trump comments",
+        "US messages via Witkoff and intermediaries are not negotiations: Araghchi"
+      ],
+      "sources": [
+        "BBC Middle East",
+        "Al Jazeera"
+      ],
+      "dates": [
+        "2026-03-25",
+        "2026-04-01"
+      ]
+    },
+    {
+      "cluster_id": 9,
+      "num_articles": 1,
+      "summary": "Russia imposing ban on all gasoline exports due to Iran war",
+      "titles": [
+        "Russia imposing ban on all gasoline exports due to Iran war"
+      ],
+      "sources": [
+        "Al Jazeera"
+      ],
+      "dates": [
+        "2026-04-01"
+      ]
+    },
+    {
+      "cluster_id": 12,
+      "num_articles": 2,
+      "summary": "Iran has launched a series of strikes against Israel and the United States, killing several people and wounding several others. The U.S. and Israel launched a series of strikes against Iran on Feb. 28, 2026, bombing numerous sites in the cities of Tehran and across the country. The United States and Israel launched a series of strikes against Iran on Feb. 28, 2026, bombing numerous sites in the ci",
+      "titles": [
+        "‘Permanent scar’: Iran minister on US-Israeli attacks on monuments",
+        "Collection: Iran, Israel and the United States at War (2025-2026 Operations) - Just Security"
+      ],
+      "sources": [
+        "Google Iran Israel",
+        "Al Jazeera"
+      ],
+      "dates": [
+        "2026-04-01"
+      ]
+    },
+    {
+      "cluster_id": 17,
+      "num_articles": 1,
+      "summary": "UK PM says war on Iran will impact Britain’s future",
+      "titles": [
+        "UK PM says war on Iran will impact Britain’s future"
+      ],
+      "sources": [
+        "Al Jazeera"
+      ],
+      "dates": [
+        "2026-04-01"
+      ]
+    },
+    {
+      "cluster_id": 0,
+      "num_articles": 6,
+      "summary": "Iran says its forces are waiting for the arrival of US ground troops to set them on fire. Meanwhile, Israel says it will further expand its buffer zone in southern Lebanon. Iran says its forces are waiting for the arrival of US ground troops to set them on fire. Meanwhile, Israel says it will further expand its buffer zone in southern Lebanon. Iran says its forces are waiting for the arrival of US",
+      "titles": [
+        "‘US attacking Iran’s nuclear facilities is a sign of endgame’",
+        "Now that the Iran war is here, the US must complete its mission - Atlantic Council",
+        "The US attacks on Iran have backfired horribly – but a path to peace is still possible | Simon Tisdall - The Guardian"
+      ],
+      "sources": [
+        "Google Iran Nuclear",
+        "Google Iran US",
+        "Google IRGC",
+        "Al Jazeera"
+      ],
+      "dates": [
+        "2026-04-01"
+      ]
+    },
+    {
+      "cluster_id": 5,
+      "num_articles": 4,
+      "summary": "President Donald Trump is considering asking Arab countries to pay for the cost of the US-Israel war on Iran. White House spokesperson Karoline Leavitt said: ‘I think it’s something the president would be quite interested in calling them to do.’ White House spokesperson Karoline Leavitt said: ‘I think it’s something the president would be quite interested in calling them to do.’",
+      "titles": [
+        "War on Iran: Three key takeaways from Araghchi’s interview with Al Jazeera",
+        "War on Iran: US’s history of making other nations pay for conflicts - Al Jazeera",
+        "US says Trump ‘interested’ in asking Arab countries to pay for war on Iran - Al Jazeera"
+      ],
+      "sources": [
+        "Google Iran US",
+        "Al Jazeera"
+      ],
+      "dates": [
+        "2026-04-01"
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "num_articles": 9,
+      "summary": "The US and Israel have launched a series of strikes against Iran, killing the leader of the Islamic Republic. The attacks have left thousands dead in Iran, Lebanon, Israel, and the Gulf Arab states. The US has launched a series of strikes against Iran, killing the leader of the Islamic Republic. The US has launched a series of strikes against Iran, killing the leader of the Islamic Republic. The U",
+      "titles": [
+        "Iran’s War With Israel and the United States | Global Conflict Tracker - Council on Foreign Relations",
+        "'In their conflict with Iran, the US and Israel are pursuing divergent war aims' - Le Monde.fr",
+        "2026 Iran war | Explained, United States, Israel, Strait of Hormuz, Map, & Conflict - Britannica"
+      ],
+      "sources": [
+        "Google Houthi",
+        "Google Iran US",
+        "Google Iran Israel"
+      ],
+      "dates": []
+    },
+    {
+      "cluster_id": 1,
+      "num_articles": 8,
+      "summary": "The war involving Iran, Israel, and the United States has entered a volatile new phase after a week marked by intensified airstrikes, high-profile killings, retaliatory attacks, and mixed signals on diplomacy. The latest developments trace back to February 28, when US and Israeli forces launched coordinated strikes on Iran, targeting military and energy infrastructure in Tehran and other major cit",
+      "titles": [
+        "What Happened This Week in the Iran-Israel-US Conflict? - Morocco World News",
+        "Iran war: What is happening on day 15 of US-Israel attacks? - Al Jazeera",
+        "US-Israel war with Iran: Mapping strikes across the Middle East - bbc.com"
+      ],
+      "sources": [
+        "Google Iran Nuclear",
+        "Google Iran US",
+        "Google Iran Israel"
+      ],
+      "dates": []
+    },
+    {
+      "cluster_id": 18,
+      "num_articles": 3,
+      "summary": "The United States has said it will not be able to end its military attacks on Iran until the end of the conflict. The US has said it will not be able to end the war until the end of the conflict. The US has said it will not be able to end the war until the end of the conflict. The US has said it will not be able to end the war until the end of the conflict.",
+      "titles": [
+        "Trump says U.S. could end Iran war in 2-3 weeks; Tehran threatens U.S. companies in region - Japan Today",
+        "Iran War: Trump talks of Operation Epic Fury's endgame in two-three weeks without Tehran pact, gives D-St - The Economic Times",
+        "US-Iran conflict could end in 2-3 weeks, Trump suggests - Construction Week Online"
+      ],
+      "sources": [
+        "Google Iran US"
+      ],
+      "dates": []
+    },
+    {
+      "cluster_id": 16,
+      "num_articles": 1,
+      "summary": "From soaring heating oil bills for homes in Yorkshire to bill-saving school closures in Pakistan, the financial fallout from the war in the Middle East is already being keenly felt. It is increasingly clear that the impact of Tehrans retaliation, designed to trigger economic disruption and damage, m",
+      "titles": [
+        "Russia, China and the US – the global winners and losers of the Iran war - bbc.com"
+      ],
+      "sources": [
+        "Google Iran US"
+      ],
+      "dates": []
+    },
+    {
+      "cluster_id": 6,
+      "num_articles": 7,
+      "summary": "The White House has said it is not aware of any significant developments in the Middle East. The White House has said it is not aware of any significant developments in the Middle East. The White House has said it is not aware of any significant developments in the Middle East. The White House has said it is not aware of any significant developments in the Middle East. The White House has said it ",
+      "titles": [
+        "Iran considers its response to potential renewed US-Israeli strikes - Middle East Institute",
+        "US strikes may have turned Iran from a state with latent nuclear capability into one with a nuclear grievance - LSE Blogs",
+        "US re-asserts 2025 strikes ‘obliterated’ Iran’s nuclear programme - Al Jazeera"
+      ],
+      "sources": [
+        "Google Iran Nuclear",
+        "Google IRGC",
+        "Google Iran Israel"
+      ],
+      "dates": []
+    },
+    {
+      "cluster_id": 10,
+      "num_articles": 3,
+      "summary": "The U.S. military conducted airstrikes on Iran's nuclear facilities in Fordow, Natanz and Isfahan on Sunday morning local time. The U.S. military conducted airstrikes on Iran's nuclear facilities in Fordow, Natanz and Isfahan on Sunday morning local time. The U.S. military conducted airstrikes on Iran's nuclear facilities in Fordow, Natanz and Isfahan on Sunday morning local time.",
+      "titles": [
+        "Israel urges U.S. to join war with Iran to eliminate nuclear program - Axios",
+        "U.S. enters Israel's war against Iran - Axios",
+        "This military rebel group could join the Iran war next against the U.S. - Axios"
+      ],
+      "sources": [
+        "Google Houthi",
+        "Google Iran Nuclear"
+      ],
+      "dates": []
+    },
+    {
+      "cluster_id": 13,
+      "num_articles": 2,
+      "summary": "Iran's military has mocked U.S. attempts at a ceasefire deal, insisting the Americans were only negotiating with themselves. The statement comes after a U.S. military spokesperson mocked U.S. attempts at a ceasefire deal Wednesday. The statement comes after a U.S. military spokesperson mocked U.S. attempts at a ceasefire deal Wednesday.",
+      "titles": [
+        "Iran-US war latest: Ship carrying thousands of Marines arrives in Middle East as Yemen’s Houthis warn of more attacks - The Independent",
+        "Iran war rages with Pentagon expected to send 82nd Airborne troops to Middle East - CBS News"
+      ],
+      "sources": [
+        "Google Houthi",
+        "Google IRGC"
+      ],
+      "dates": []
+    },
+    {
+      "cluster_id": 8,
+      "num_articles": 2,
+      "summary": "The Pentagon says at least 13 attacks have been reported in Iraq and Syria over the past week. The attacks occurred between October 17 and October 24. The attacks occurred between October 17 and October 24. The attacks occurred between October 17 and October 24. The attacks occurred between October 17 and October 24. The attacks occurred between October 17 and October 24. The attacks occurred betw",
+      "titles": [
+        "Iranian Proxies Attack US Troops In Iraq And Syria 13 Times In A Week - ایران اینترنشنال",
+        "Iran has attacked US troops 83 times since Biden became president - Task & Purpose"
+      ],
+      "sources": [
+        "Google IRGC"
+      ],
+      "dates": []
+    }
+  ],
+  "events_with_casualties": [
+    {
+      "title": "2026 iran war | explained, united states, israel, strait of hormuz, map, & conflict - britannica",
+      "source": "Google Iran US",
+      "date": null,
+      "killed": 30000,
+      "injured": 0,
+      "type": "airstrike",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9GTnhfOUV2MndpMTFxdjZSeUpvMm1mRTVrNVZROVRoRHZyZjRCQzVpdzlPcVlWY2lTdEtuMTFEQ25Fd09mR3I4TU5RLTBzS3doUzR5d0VlY2piQQ?oc=5"
+    },
+    {
+      "title": "iranian proxies attack us troops in iraq and syria 13 times in a week - ایران اینترنشنال",
+      "source": "Google IRGC",
+      "date": null,
+      "killed": 1400,
+      "injured": 0,
+      "type": "missile_attack",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9pcmxhdnEtMzZtMHNlY002RVlwYUpoVHJLWFFqeTlqc3VRSGtXemZNRkRVUjhDSFBCbnNlQ01QSGI3cl93aGFLbmNkVDRUVjZoM3c?oc=5"
+    },
+    {
+      "title": "the us attacks on iran have backfired horribly – but a path to peace is still possible | simon tisda",
+      "source": "Google Iran Nuclear",
+      "date": null,
+      "killed": 935,
+      "injured": 0,
+      "type": "airstrike",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPa3pYRnZBM3AybnpfOGNpVkdyd0p2aExYdmR0T0pWNDJ0azNzcFpOeHM5YjlmVW9fSDkwdE5vRllyU3pYcVE3dUo5TS1HQjdValRvUUUyRmdKcHBfLXU4N0RQOE1fbC1uQldpbDg4cjFfRVczcjA3VE5GTl81d2VQMWJMNlZuSVg0a0E3MnNNV2R3UU5UeXRTbzhxYnFZck03cXZwcFhR?oc=5"
+    },
+    {
+      "title": "what we know about the us-israeli attack on iran and tehran’s retaliation - cnn",
+      "source": "Google Iran Israel",
+      "date": null,
+      "killed": 200,
+      "injured": 700,
+      "type": "airstrike",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBBcDlIRGhubVhZdVR2Rm9zaE15ZTdMbTZtSWpMaFFicU1xeUdEcWxCYUExR05ScXY5eGJaQnlKMTlCRktSUmJKcTZJakswbDJCYVhvXzYzbDJCMVFJU0JtMjBNM2dGWDVqWDFNY2dHOU11LXEtdmFkTQ?oc=5"
+    },
+    {
+      "title": "iran’s war with israel and the united states | global conflict tracker - council on foreign relation",
+      "source": "Google Iran US",
+      "date": null,
+      "killed": 555,
+      "injured": 0,
+      "type": "airstrike",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMWduRExjZXhMUjFuYjV4Zzc0LS11OHVKUEhXSlpUNUdFMm9MVGlJeFd5eGh1ZWpEWWhFNEdJX0tOVTlJbnZ5NmpBQ3dYeGNpSTBOSWtISUduak5WSHhfQUhQcHBKbVpLdG1IVi1ySWVGd05NM18yektrem1TM3ZvaV9xVjR2eC04cE9RZ3FZajNCZWFHNzBaS0hhSS02dw?oc=5"
+    },
+    {
+      "title": "us, israel bomb iran: a timeline of talks and threats leading up to attacks - al jazeera",
+      "source": "Google Iran Israel",
+      "date": null,
+      "killed": 28,
+      "injured": 0,
+      "type": "airstrike",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOamZqMEdieVVXM2lYM1dMN1Vaelg1MmxoeFppTVFDNHd6U1pKNzZKMUdHb1RVUm1KVnhMaXRxejREZXo3SVhpbG9GcUZQMWhGbjgybUo1Z2dnc1RmcVFPbDlIazdabG1HeVBSekVILURlLWE1cnVtZjNOMzZPTnFsUmtDc0ZseU5Td1dOblcxMURfdWZVdXQtWG1qUkp5b1hycFRkelNKZGRlTWR3Nmt0RjlfOFbSAboBQVVfeXFMT2hPQXI1SlZaOXpJRFFwdl9KVXRrVzF2SHc2dUZsNzBPYTlxeEJVaDFFYmd3dTFHWTB1a016X09HQllyYi1zSG1JaGt1RktfdmRXb2xxNGNKREhseEd2ajhQSmFtX3Uya3NoMV9uTF9FRTcxSlo4Y1FSTzRfcG1lbHBtVXhzWDFqZ3BHUndsc05IR3ZieGd6YlN4aWx0ZXdIYUhic2RralVxeEt6WlBRbjQwYXJZMjh6LVJn?oc=5"
+    },
+    {
+      "title": "day 29 of middle east conflict — iran-backed houthis enter war, firing missiles at israel - cnn",
+      "source": "Google Houthi",
+      "date": null,
+      "killed": 28,
+      "injured": 0,
+      "type": "airstrike",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE44a0tINlhLYXQ3UHo0TGhkNDRBNm80T0picjlkWTY3VzdrbFRZTnVnVDVwWEg4T095MzdfT1FUWTlSWWxxdHgtdGtMRF9IN1pQY19ub0stZXJJbUNLSHA4cGp3Y0xLTXNCbmRqcTAwOF9oT1Nsd1hOYkZmWQ?oc=5"
+    },
+    {
+      "title": "houthi forces enter iran conflict with missile attacks on israeli military sites - the guardian",
+      "source": "Google Houthi",
+      "date": null,
+      "killed": 0,
+      "injured": 12,
+      "type": "airstrike",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQS0RTS2pPUloya2sxVi0zLXdVSEZXWjB6Q0NKaWJJLWRHMktwdzNNb0QzakRfclE2ckZQWEtLRW4xWXZYRS1GY2ViOXV6bktJVWxHNl9zSkFQN0xRQW93X0pQTDVUTEpWSEJQbW5zdmNDS3ZYaHA2UlhLUzlEVW9fQThXajIxN1JDYmtoaUQ1QnVpMlh2YXhjWnN4azlTUk55VUtmemdkUF8xbi16V3MtVE80Vk9kRWs0azgtU1FUcjNuYzlv?oc=5"
+    }
+  ],
+  "generated_at": "2026-04-03T18:24:33.829512+00:00"
+}

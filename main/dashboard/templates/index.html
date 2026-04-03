@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAIG — OSINT Conflict Intelligence Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:#060a14;color:#c8d8f0;font-family:'Courier New',monospace;overflow-x:hidden;}
+
+    .topbar{background:#0a0f1e;border-bottom:1px solid #ff003c33;padding:12px 28px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:999;}
+    .topbar h1{color:#ff003c;font-size:16px;letter-spacing:4px;}
+    .topbar .right{display:flex;gap:20px;align-items:center;}
+    .live-badge{display:flex;align-items:center;gap:6px;font-size:11px;color:#00ff88;letter-spacing:2px;}
+    .live-dot{width:8px;height:8px;background:#00ff88;border-radius:50%;animation:blink 1s infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    .timestamp{font-size:10px;color:#445;}
+
+    .nav{background:#0a0f1e;border-bottom:1px solid #1a2540;padding:0 28px;display:flex;gap:2px;overflow-x:auto;}
+    .nav button{background:none;border:none;color:#445;padding:11px 16px;font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;cursor:pointer;border-bottom:2px solid transparent;text-transform:uppercase;white-space:nowrap;}
+    .nav button.active{color:#0088ff;border-bottom-color:#0088ff;}
+    .nav button:hover{color:#89a;}
+
+    .page{display:none;padding:20px 28px;}
+    .page.active{display:block;}
+
+    .risk-banner{padding:10px 20px;border-radius:6px;margin-bottom:20px;font-size:12px;letter-spacing:2px;display:flex;justify-content:space-between;align-items:center;}
+    .risk-CRITICAL{background:#ff003c22;border:1px solid #ff003c;color:#ff003c;}
+    .risk-HIGH{background:#ff660022;border:1px solid #ff6600;color:#ff6600;}
+    .risk-MEDIUM{background:#ffcc0022;border:1px solid #ffcc00;color:#ffcc00;}
+    .risk-LOW{background:#00ff8822;border:1px solid #00ff88;color:#00ff88;}
+
+    .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px;}
+    .card{background:#0a0f1e;border:1px solid #1a2540;border-radius:8px;padding:14px;}
+    .card .lbl{font-size:10px;color:#445;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+    .card .val{font-size:24px;font-weight:bold;}
+    .card .sub{font-size:10px;color:#445;margin-top:3px;}
+    .card.red{border-color:#ff003c44;} .card.red .val{color:#ff003c;}
+    .card.orange{border-color:#ff660044;} .card.orange .val{color:#ff6600;}
+    .card.yellow{border-color:#ffcc0044;} .card.yellow .val{color:#ffcc00;}
+    .card.green{border-color:#00ff8844;} .card.green .val{color:#00ff88;}
+    .card.blue{border-color:#0088ff44;} .card.blue .val{color:#0088ff;}
+    .card.purple{border-color:#aa44ff44;} .card.purple .val{color:#aa44ff;}
+
+    .panel{background:#0a0f1e;border:1px solid #1a2540;border-radius:8px;padding:18px;}
+    .panel h2{font-size:11px;letter-spacing:3px;color:#445;text-transform:uppercase;margin-bottom:14px;border-bottom:1px solid #1a2540;padding-bottom:8px;}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+    .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;}
+    .grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;margin-bottom:16px;}
+    canvas{max-height:240px;}
+
+    #conflict-map{height:500px;border-radius:6px;border:1px solid #1a2540;}
+
+    .event-feed{max-height:500px;overflow-y:auto;}
+    .event-item{border:1px solid #1a2540;border-radius:6px;padding:12px;margin-bottom:8px;cursor:pointer;transition:border-color 0.2s;}
+    .event-item:hover{border-color:#0088ff55;}
+    .event-meta{display:flex;justify-content:space-between;font-size:10px;color:#445;margin-bottom:5px;}
+    .event-title{font-size:12px;color:#ccd;line-height:1.5;}
+    .event-badges{display:flex;gap:5px;margin-top:7px;flex-wrap:wrap;}
+
+    .badge{font-size:9px;padding:2px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:1px;}
+    .b-red{background:#ff003c22;color:#ff003c;border:1px solid #ff003c44;}
+    .b-orange{background:#ff660022;color:#ff6600;border:1px solid #ff660044;}
+    .b-yellow{background:#ffcc0022;color:#ffcc00;border:1px solid #ffcc0044;}
+    .b-green{background:#00ff8822;color:#00ff88;border:1px solid #00ff8844;}
+    .b-blue{background:#0088ff22;color:#0088ff;border:1px solid #0088ff44;}
+    .b-purple{background:#aa44ff22;color:#aa44ff;border:1px solid #aa44ff44;}
+    .b-gray{background:#1a2540;color:#89a;border:1px solid #2a3550;}
+
+    .filters{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+    .filters input,.filters select{background:#060a14;border:1px solid #1a2540;color:#c8d8f0;padding:7px 12px;border-radius:5px;font-family:'Courier New',monospace;font-size:11px;}
+    .filters input{flex:1;min-width:200px;}
+
+    .data-table{width:100%;border-collapse:collapse;font-size:11px;}
+    .data-table th{text-align:left;color:#445;font-size:10px;letter-spacing:2px;padding:7px 8px;border-bottom:1px solid #1a2540;}
+    .data-table td{padding:8px;border-bottom:1px solid #1a2540;color:#89a;}
+    .data-table tr:hover td{background:#0d1428;}
+
+    /* ── D3 GRAPH ── */
+    #ner-graph,#cluster-graph{width:100%;height:520px;background:#060a14;border-radius:6px;border:1px solid #1a2540;overflow:hidden;}
+    .graph-legend{display:flex;gap:16px;margin-bottom:10px;flex-wrap:wrap;}
+    .graph-legend span{font-size:10px;display:flex;align-items:center;gap:5px;}
+    .leg-dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+
+    /* ── CLUSTER CARDS ── */
+    .cluster-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .cluster-card{background:#060a14;border:1px solid #1a2540;border-radius:8px;padding:14px;cursor:pointer;transition:border-color 0.2s;}
+    .cluster-card:hover{border-color:#0088ff;}
+    .cluster-card h4{font-size:11px;color:#0088ff;margin-bottom:8px;letter-spacing:1px;}
+    .cluster-card .summ{font-size:10px;color:#667;line-height:1.5;margin-bottom:8px;}
+    .cluster-card .meta{display:flex;gap:8px;flex-wrap:wrap;}
+
+    /* ── COMPARISON ── */
+    .pov-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+    .pov-card{border-radius:8px;padding:20px;}
+    .pov-card.live{background:#ff003c11;border:1px solid #ff003c44;}
+    .pov-card.articles{background:#0088ff11;border:1px solid #0088ff44;}
+    .pov-card h3{font-size:12px;letter-spacing:2px;margin-bottom:14px;text-transform:uppercase;}
+    .pov-card.live h3{color:#ff003c;}
+    .pov-card.articles h3{color:#0088ff;}
+    .pov-stat{display:flex;justify-content:space-between;font-size:11px;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid #1a2540;}
+    .pov-stat .pk{color:#445;}
+    .pov-stat .pv{font-size:16px;font-weight:bold;color:#fff;}
+
+    /* ── RISK GAUGE ── */
+    .risk-gauge{display:flex;flex-direction:column;align-items:center;padding:20px;}
+    .gauge-score{font-size:64px;font-weight:bold;line-height:1;}
+    .gauge-label{font-size:14px;letter-spacing:4px;margin-top:8px;}
+    .gauge-bar{width:100%;height:8px;background:#1a2540;border-radius:4px;margin-top:16px;overflow:hidden;}
+    .gauge-fill{height:100%;border-radius:4px;transition:width 1s ease;}
+
+    /* ── MODAL ── */
+    .modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000000ee;z-index:2000;justify-content:center;align-items:flex-start;padding-top:40px;overflow-y:auto;}
+    .modal-overlay.active{display:flex;}
+    .modal{background:#0a0f1e;border:1px solid #0088ff;border-radius:10px;padding:24px;max-width:900px;width:95%;margin-bottom:40px;}
+    .modal h3{color:#0088ff;font-size:13px;letter-spacing:2px;margin-bottom:16px;}
+    .modal-field{margin-bottom:10px;}
+    .modal-key{font-size:9px;color:#445;letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;}
+    .modal-val{font-size:12px;color:#ccd;}
+    .modal-val a{color:#0088ff;font-size:11px;}
+    .btn-close{float:right;background:none;border:1px solid #445;color:#445;padding:3px 9px;border-radius:3px;cursor:pointer;font-size:11px;font-family:'Courier New',monospace;}
+    .btn-close:hover{border-color:#ff003c;color:#ff003c;}
+    .article-mini{background:#060a14;border:1px solid #1a2540;border-radius:6px;padding:12px;margin-bottom:8px;}
+    .article-mini h5{font-size:11px;color:#0088ff;margin-bottom:6px;}
+    .article-mini p{font-size:10px;color:#667;line-height:1.5;}
+    .articles-list{max-height:400px;overflow-y:auto;margin-top:12px;}
+
+    /* ── WIKI CARDS ── */
+    .wiki-card{background:#060a14;border:1px solid #1a2540;border-radius:6px;padding:14px;margin-bottom:10px;}
+    .wiki-card h4{font-size:11px;color:#0088ff;margin-bottom:8px;}
+    .wiki-stat{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px;}
+    .wiki-stat .wk{color:#445;} .wiki-stat .wv{color:#ccd;}
+
+    .conf-bar{height:4px;border-radius:2px;background:#0088ff;display:inline-block;}
+
+    ::-webkit-scrollbar{width:3px;}
+    ::-webkit-scrollbar-track{background:#060a14;}
+    ::-webkit-scrollbar-thumb{background:#1a2540;border-radius:3px;}
+    .footer{text-align:center;padding:18px;font-size:10px;color:#223;letter-spacing:3px;}
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>⬡ SAIG — CONFLICT INTELLIGENCE SYSTEM</h1>
+  <div class="right">
+    <div class="live-badge"><div class="live-dot"></div>LIVE TRACKING</div>
+    <div class="timestamp" id="last-updated">—</div>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="active" onclick="showPage('overview',this)">Overview</button>
+  <button onclick="showPage('comparison',this)">Dual POV</button>
+  <button onclick="showPage('map',this)">Geo Map</button>
+  <button onclick="showPage('timeline',this)">Timeline</button>
+  <button onclick="showPage('events',this)">Event Feed</button>
+  <button onclick="showPage('actors',this)">Actors</button>
+  <button onclick="showPage('casualties',this)">Casualties</button>
+  <button onclick="showPage('clusters',this)">Clusters</button>
+  <button onclick="showPage('nergraph',this)">NER Graph</button>
+  <button onclick="showPage('clustergraph',this)">Cluster Graph</button>
+  <button onclick="showPage('risk',this)">Risk Score</button>
+  <button onclick="showPage('sources',this)">Sources</button>
+</div>
+
+<!-- ═══════ OVERVIEW ═══════ -->
+<div class="page active" id="page-overview">
+  <div class="risk-banner risk-LOW" id="risk-banner">Loading situation assessment...</div>
+  <div class="cards">
+    <div class="card red"><div class="lbl">Total Events</div><div class="val" id="ov-total">—</div><div class="sub">tracked incidents</div></div>
+    <div class="card orange"><div class="lbl">Attacks</div><div class="val" id="ov-attacks">—</div><div class="sub">kinetic events</div></div>
+    <div class="card red"><div class="lbl">Killed</div><div class="val" id="ov-killed">—</div><div class="sub">reported deaths</div></div>
+    <div class="card yellow"><div class="lbl">Injured</div><div class="val" id="ov-injured">—</div><div class="sub">reported wounded</div></div>
+    <div class="card blue"><div class="lbl">Avg Severity</div><div class="val" id="ov-severity">—</div><div class="sub">out of 10</div></div>
+  </div>
+  <div class="grid-3" style="margin-bottom:16px;">
+    <div class="panel"><h2>Actor Frequency</h2><canvas id="actorChart"></canvas></div>
+    <div class="panel"><h2>Attack Type Distribution</h2><canvas id="typeChart"></canvas></div>
+    <div class="panel"><h2>Severity Distribution</h2><canvas id="sevDistChart"></canvas></div>
+  </div>
+  <div class="panel"><h2>Wikipedia Intelligence — Live Reference Data</h2><div id="wiki-cards"></div></div>
+</div>
+
+<!-- ═══════ DUAL POV ═══════ -->
+<div class="page" id="page-comparison">
+  <div class="panel" style="margin-bottom:16px;">
+    <h2>Dual Intelligence POV — Live Scrape vs Article Extraction</h2>
+    <p style="font-size:11px;color:#556;margin-bottom:16px;">
+      Two independent views of the same conflict — cross-referencing both increases confidence.
+    </p>
+    <div class="pov-grid">
+      <div class="pov-card live">
+        <h3>🔴 POV 1 — Live Tracker Scrape</h3>
+        <div class="pov-stat"><span class="pk">Source</span><span class="pv" id="pov1-source" style="font-size:11px;">—</span></div>
+        <div class="pov-stat"><span class="pk">Killed (reported)</span><span class="pv" id="pov1-killed">—</span></div>
+        <div class="pov-stat"><span class="pk">Injured (reported)</span><span class="pv" id="pov1-injured">—</span></div>
+        <div class="pov-stat"><span class="pk">Attacks (reported)</span><span class="pv" id="pov1-attacks">—</span></div>
+        <div class="pov-stat"><span class="pk">Pages scraped</span><span class="pv" id="pov1-pages" style="font-size:11px;">—</span></div>
+      </div>
+      <div class="pov-card articles">
+        <h3>🔵 POV 2 — Article Extraction (NER Pipeline)</h3>
+        <div class="pov-stat"><span class="pk">Source</span><span class="pv" id="pov2-source" style="font-size:11px;">—</span></div>
+        <div class="pov-stat"><span class="pk">Killed (extracted)</span><span class="pv" id="pov2-killed">—</span></div>
+        <div class="pov-stat"><span class="pk">Injured (extracted)</span><span class="pv" id="pov2-injured">—</span></div>
+        <div class="pov-stat"><span class="pk">Attacks (extracted)</span><span class="pv" id="pov2-attacks">—</span></div>
+        <div class="pov-stat"><span class="pk">Articles analyzed</span><span class="pv" id="pov2-articles">—</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="panel"><h2>Killed — POV Comparison</h2><canvas id="povKilledChart"></canvas></div>
+    <div class="panel"><h2>Attacks — POV Comparison</h2><canvas id="povAttacksChart"></canvas></div>
+  </div>
+</div>
+
+<!-- ═══════ MAP ═══════ -->
+<div class="page" id="page-map">
+  <div class="panel">
+    <h2>Geo-Spatial Conflict Map — From NER Location Data</h2>
+    <div style="display:flex;gap:16px;margin-bottom:12px;font-size:10px;">
+      <span><span style="color:#ff003c">●</span> High Severity (8-10)</span>
+      <span><span style="color:#ff6600">●</span> Medium (5-7)</span>
+      <span><span style="color:#00ff88">●</span> Low (1-4)</span>
+    </div>
+    <div id="conflict-map"></div>
+  </div>
+</div>
+
+<!-- ═══════ TIMELINE ═══════ -->
+<div class="page" id="page-timeline">
+  <div class="panel" style="margin-bottom:16px;"><h2>Severity Over Time</h2><canvas id="timelineSevChart" style="max-height:260px;"></canvas></div>
+  <div class="panel" style="margin-bottom:16px;"><h2>Event Volume Over Time</h2><canvas id="timelineVolChart" style="max-height:260px;"></canvas></div>
+  <div class="panel"><h2>Casualty Timeline</h2><canvas id="timelineCasChart" style="max-height:260px;"></canvas></div>
+</div>
+
+<!-- ═══════ EVENT FEED ═══════ -->
+<div class="page" id="page-events">
+  <div class="panel">
+    <h2>Live Intelligence Feed — From NER Articles</h2>
+    <div class="filters">
+      <input type="text" id="search-input" placeholder="Search events..." oninput="filterEvents()"/>
+      <select id="type-filter" onchange="filterEvents()">
+        <option value="">All Types</option>
+        <option value="airstrike">Airstrike</option>
+        <option value="missile_attack">Missile</option>
+        <option value="drone_attack">Drone</option>
+        <option value="nuclear">Nuclear</option>
+        <option value="diplomatic">Diplomatic</option>
+        <option value="naval">Naval</option>
+        <option value="general">General</option>
+      </select>
+      <select id="sev-filter" onchange="filterEvents()">
+        <option value="">All Severity</option>
+        <option value="high">High (8-10)</option>
+        <option value="med">Medium (5-7)</option>
+        <option value="low">Low (1-4)</option>
+      </select>
+    </div>
+    <div class="event-feed" id="event-feed">Loading...</div>
+  </div>
+</div>
+
+<!-- ═══════ ACTORS ═══════ -->
+<div class="page" id="page-actors">
+  <div class="grid-2" style="margin-bottom:16px;">
+    <div class="panel"><h2>Actor Mention Count</h2><canvas id="actorBarChart"></canvas></div>
+    <div class="panel"><h2>Actor Sentiment Analysis</h2><canvas id="actorSentChart"></canvas></div>
+  </div>
+  <div class="panel">
+    <h2>Actor Detail Table</h2>
+    <table class="data-table">
+      <thead><tr><th>Actor</th><th>Mentions</th><th>Sentiment</th><th>Top Event Type</th></tr></thead>
+      <tbody id="actor-table-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════ CASUALTIES ═══════ -->
+<div class="page" id="page-casualties">
+  <div class="cards" style="grid-template-columns:repeat(3,1fr);">
+    <div class="card red"><div class="lbl">Total Killed</div><div class="val" id="cas-killed">—</div><div class="sub">reported deaths</div></div>
+    <div class="card yellow"><div class="lbl">Total Injured</div><div class="val" id="cas-injured">—</div><div class="sub">reported wounded</div></div>
+    <div class="card orange"><div class="lbl">Total Affected</div><div class="val" id="cas-total">—</div><div class="sub">killed + injured</div></div>
+  </div>
+  <div class="grid-2" style="margin-bottom:16px;">
+    <div class="panel"><h2>Killed vs Injured</h2><canvas id="casCompareChart"></canvas></div>
+    <div class="panel"><h2>Casualties by Event Type</h2><canvas id="casTypeChart"></canvas></div>
+  </div>
+  <div class="panel"><h2>Events with Casualties</h2><div class="event-feed" id="cas-feed"></div></div>
+</div>
+
+<!-- ═══════ CLUSTERS ═══════ -->
+<div class="page" id="page-clusters">
+  <div class="panel">
+    <h2>Article Clusters — Click to Explore</h2>
+    <p style="font-size:10px;color:#556;margin-bottom:14px;">Articles grouped by semantic similarity. Each cluster represents a distinct event or theme.</p>
+    <div class="cluster-grid" id="cluster-grid">Loading...</div>
+  </div>
+</div>
+
+<!-- ═══════ NER GRAPH ═══════ -->
+<div class="page" id="page-nergraph">
+  <div class="panel">
+    <h2>Actor — Location Intelligence Graph (from NER pipeline)</h2>
+    <div class="graph-legend">
+      <span><span class="leg-dot" style="background:#ff003c"></span>Actor (negative sentiment)</span>
+      <span><span class="leg-dot" style="background:#0088ff"></span>Actor (neutral)</span>
+      <span><span class="leg-dot" style="background:#00ff88"></span>Location</span>
+    </div>
+    <div id="ner-graph"></div>
+  </div>
+</div>
+
+<!-- ═══════ CLUSTER GRAPH ═══════ -->
+<div class="page" id="page-clustergraph">
+  <div class="panel">
+    <h2>Cluster Intelligence Graph — Click nodes to explore</h2>
+    <div class="graph-legend">
+      <span><span class="leg-dot" style="background:#aa44ff"></span>Cluster</span>
+      <span><span class="leg-dot" style="background:#ff003c"></span>Actor/Person</span>
+      <span><span class="leg-dot" style="background:#0088ff"></span>Organization</span>
+      <span><span class="leg-dot" style="background:#00ff88"></span>Location</span>
+    </div>
+    <div id="cluster-graph"></div>
+  </div>
+</div>
+
+<!-- ═══════ RISK ═══════ -->
+<div class="page" id="page-risk">
+  <div class="grid-2">
+    <div class="panel">
+      <h2>Current Risk Assessment</h2>
+      <div class="risk-gauge">
+        <div class="gauge-score" id="risk-score-val">—</div>
+        <div class="gauge-label" id="risk-score-label">LOADING</div>
+        <div class="gauge-bar"><div class="gauge-fill" id="risk-gauge-fill" style="width:0%;background:#00ff88;"></div></div>
+      </div>
+    </div>
+    <div class="panel"><h2>Risk Component Breakdown</h2><canvas id="riskBreakChart"></canvas></div>
+  </div>
+  <div class="panel" style="margin-top:16px;">
+    <h2>Risk Interpretation Guide</h2>
+    <table class="data-table">
+      <thead><tr><th>Level</th><th>Score</th><th>Meaning</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge b-green">LOW</span></td><td>0–24</td><td>Routine monitoring</td><td>Continue observation</td></tr>
+        <tr><td><span class="badge b-yellow">MEDIUM</span></td><td>25–49</td><td>Elevated tension</td><td>Increase monitoring</td></tr>
+        <tr><td><span class="badge b-orange">HIGH</span></td><td>50–74</td><td>Active conflict</td><td>Alert analysts</td></tr>
+        <tr><td><span class="badge b-red">CRITICAL</span></td><td>75–100</td><td>Crisis level</td><td>Immediate escalation</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════ SOURCES ═══════ -->
+<div class="page" id="page-sources">
+  <div class="panel" style="margin-bottom:16px;">
+    <h2>Source Reliability & Provenance</h2>
+    <table class="data-table">
+      <thead><tr><th>Source</th><th>Articles</th><th>Confidence</th><th>Type</th><th>Bias</th></tr></thead>
+      <tbody id="source-tbody"></tbody>
+    </table>
+  </div>
+  <div class="panel"><h2>Source Distribution</h2><canvas id="sourceChart" style="max-height:260px;"></canvas></div>
+</div>
+
+<!-- CLUSTER MODAL -->
+<div class="modal-overlay" id="cluster-modal">
+  <div class="modal">
+    <button class="btn-close" onclick="closeClusterModal()">✕ CLOSE</button>
+    <h3>⬡ CLUSTER INTELLIGENCE DETAIL</h3>
+    <div id="cluster-modal-body"></div>
+  </div>
+</div>
+
+<!-- EVENT MODAL -->
+<div class="modal-overlay" id="event-modal">
+  <div class="modal">
+    <button class="btn-close" onclick="closeEventModal()">✕ CLOSE</button>
+    <h3>⬡ EVENT DETAIL</h3>
+    <div id="event-modal-body"></div>
+  </div>
+</div>
+
+<div class="footer">SAIG OSINT CONFLICT INTELLIGENCE SYSTEM — FOR AUTHORIZED ANALYST USE ONLY</div>
+
+<script>
+// ═══════════════════════════════════════════════════
+// GLOBALS
+// ═══════════════════════════════════════════════════
+const C = ["#ff003c","#0088ff","#00ff88","#ffcc00","#ff6600","#aa44ff","#00ccff","#ff4488","#44ffaa","#ffaa44"];
+let ALL_EVENTS = [];
+let MAP_INSTANCE = null;
+
+const SOURCE_META = {
+  "Al Jazeera":        {conf:0.75,bias:"Center",type:"RSS"},
+  "BBC World":         {conf:0.85,bias:"Center-Left",type:"RSS"},
+  "BBC Middle East":   {conf:0.85,bias:"Center-Left",type:"RSS"},
+  "CNN World":         {conf:0.75,bias:"Center-Left",type:"RSS"},
+  "Reuters":           {conf:0.90,bias:"Center",type:"RSS"},
+  "Wikipedia":         {conf:0.70,bias:"Neutral",type:"Wiki"},
+  "Google Iran US":    {conf:0.65,bias:"Aggregated",type:"GNews"},
+  "Google Iran Israel":{conf:0.65,bias:"Aggregated",type:"GNews"},
+  "Google IRGC":       {conf:0.65,bias:"Aggregated",type:"GNews"},
+  "Google Houthi":     {conf:0.65,bias:"Aggregated",type:"GNews"},
+};
+
+// ═══════════════════════════════════════════════════
+// NAV
+// ═══════════════════════════════════════════════════
+function showPage(name, btn) {
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));
+  document.getElementById("page-"+name).classList.add("active");
+  if(btn) btn.classList.add("active");
+  if(name==="map"         && !window.mapLoaded)     { window.mapLoaded=true;     initMap(); }
+  if(name==="timeline"    && !window.tlLoaded)      { window.tlLoaded=true;      loadTimeline(); }
+  if(name==="actors"      && !window.actLoaded)     { window.actLoaded=true;     loadActors(); }
+  if(name==="casualties"  && !window.casLoaded)     { window.casLoaded=true;     loadCasualties(); }
+  if(name==="clusters"    && !window.clsLoaded)     { window.clsLoaded=true;     loadClusters(); }
+  if(name==="nergraph"    && !window.nerGLoaded)    { window.nerGLoaded=true;    loadNERGraph(); }
+  if(name==="clustergraph"&& !window.clsGLoaded)    { window.clsGLoaded=true;    loadClusterGraph(); }
+  if(name==="risk"        && !window.riskLoaded)    { window.riskLoaded=true;    loadRisk(); }
+  if(name==="sources"     && !window.srcLoaded)     { window.srcLoaded=true;     loadSources(); }
+  if(name==="comparison"  && !window.cmpLoaded)     { window.cmpLoaded=true;     loadComparison(); }
+}
+
+// ═══════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════
+function sevClass(s){return s>=8?"b-red":s>=5?"b-orange":"b-green";}
+function sevLabel(s){return s>=8?"HIGH":s>=5?"MED":"LOW";}
+
+function getEventType(text){
+  text=(text||"").toLowerCase();
+  if(/airstrike|air strike|bombing/.test(text)) return "airstrike";
+  if(/missile|ballistic|rocket/.test(text))     return "missile_attack";
+  if(/drone|uav/.test(text))                    return "drone_attack";
+  if(/nuclear|uranium/.test(text))              return "nuclear";
+  if(/sanction|diplomacy|deal|ceasefire/.test(text)) return "diplomatic";
+  if(/naval|ship|fleet|strait/.test(text))      return "naval";
+  return "general";
+}
+
+function getSeverity(text, killed=0){
+  text=(text||"").toLowerCase();
+  if(/nuclear|mass casualty/.test(text)) return 10;
+  if(killed>50||/killed|dead|casualties/.test(text)) return 9;
+  if(killed>10||/wounded|explosion|attack/.test(text)) return 8;
+  if(/military operation|troops deployed/.test(text)) return 7;
+  if(/drone|intercept|sanctions/.test(text)) return 6;
+  if(/warns|threatens/.test(text)) return 5;
+  if(/protest/.test(text)) return 4;
+  if(/statement|says/.test(text)) return 3;
+  if(/talks|negotiation/.test(text)) return 2;
+  return 3;
+}
+
+function extractKilled(text){
+  text=(text||"").toLowerCase();
+  const patterns=[
+    /(\d[\d,]*)\s+(?:people\s+)?(?:killed|dead|died)/,
+    /at least\s+(\d[\d,]*)\s+(?:killed|dead)/,
+    /killing\s+(?:at least\s+)?(\d[\d,]*)/,
+    /death toll.*?(\d[\d,]*)/,
+  ];
+  let max=0;
+  patterns.forEach(p=>{
+    const m=text.match(p);
+    if(m){const n=parseInt(m[1].replace(/,/g,""));if(n>max&&n<1000000)max=n;}
+  });
+  return max;
+}
+
+// ═══════════════════════════════════════════════════
+// LOAD OVERVIEW
+// ═══════════════════════════════════════════════════
+async function loadOverview(){
+  const d = await fetch("/api/live").then(r=>r.json()).catch(()=>({}));
+  const agg  = d.aggregate||{};
+  const risk = d.risk||{};
+
+  document.getElementById("last-updated").innerText =
+    "Updated: "+(d.generated_at||"").replace("T"," ").slice(0,19)+" UTC";
+
+  const banner=document.getElementById("risk-banner");
+  const rl=risk.risk_label||"LOW";
+  banner.className=`risk-banner risk-${rl}`;
+  banner.innerHTML=`<span>⬡ SITUATION: ${rl} — Risk Score ${risk.risk_score||0}/100</span><span>Escalation: ${agg.escalation_level||"—"} &nbsp;|&nbsp; Events: ${agg.total_events||0} &nbsp;|&nbsp; Attacks: ${agg.total_attacks||0}</span>`;
+
+  document.getElementById("ov-total").innerText    = agg.total_events  ||0;
+  document.getElementById("ov-attacks").innerText  = agg.total_attacks ||0;
+  document.getElementById("ov-killed").innerText   = agg.total_killed  ||0;
+  document.getElementById("ov-injured").innerText  = agg.total_injured ||0;
+  document.getElementById("ov-severity").innerText = agg.avg_severity  ||0;
+
+  const ac=agg.actor_counts||{};
+  if(Object.keys(ac).length){
+    new Chart(document.getElementById("actorChart"),{type:"bar",data:{labels:Object.keys(ac).map(k=>k.slice(0,15)),datasets:[{data:Object.values(ac),backgroundColor:C,borderRadius:3}]},options:{plugins:{legend:{display:false}},scales:{x:{ticks:{color:"#445"},grid:{color:"#1a2540"}},y:{ticks:{color:"#445"},grid:{color:"#1a2540"}}}}});
+  }
+
+  const tc=agg.event_type_counts||{};
+  if(Object.keys(tc).length){
+    new Chart(document.getElementById("typeChart"),{type:"doughnut",data:{labels:Object.keys(tc),datasets:[{data:Object.values(tc),backgroundColor:C,borderWidth:0}]},options:{plugins:{legend:{labels:{color:"#445",font:{size:9}}}}}});
+  }
+
+  // Severity distribution from rss_events
+  const rss=d.rss_events||[];
+  ALL_EVENTS=rss;
+  renderEventFeed(ALL_EVENTS);
+  const sb={"1-3":0,"4-6":0,"7-8":0,"9-10":0};
+  rss.forEach(e=>{const s=e.severity||0;if(s<=3)sb["1-3"]++;else if(s<=6)sb["4-6"]++;else if(s<=8)sb["7-8"]++;else sb["9-10"]++;});
+  new Chart(document.getElementById("sevDistChart"),{type:"bar",data:{labels:Object.keys(sb),datasets:[{data:Object.values(sb),backgroundColor:["#00ff88","#ffcc00","#ff6600","#ff003c"],borderRadius:3}]},options:{plugins:{legend:{display:false}},scales:{x:{ticks:{color:"#445"},grid:{color:"#1a2540"}},y:{ticks:{color:"#445"},grid:{color:"#1a2540"}}}}});
+
+  // Wiki cards
+  const wiki=d.wiki_stats||[];
+  const wc=document.getElementById("wiki-cards");
+  wc.innerHTML="";
+  wiki.forEach(w=>{
+    wc.innerHTML+=`<div class="wiki-card"><h4>📖 ${w.name||w.source}</h4><div class="wiki-stat"><span class="wk">Max Killed Reported</span><span class="wv">${w.killed||0}</span></div><div class="wiki-stat"><span class="wk">Max Injured Reported</span><span class="wv">${w.injured||0}</span></div><div class="wiki-stat"><span class="wk">URL</span><span class="wv"><a href="${w.url}" target="_blank" style="color:#0088ff">${(w.url||"").slice(0,60)}...</a></span></div><div class="wiki-stat"><span class="wk">Sample</span><span class="wv" style="font-size:10px;color:#556;">${(w.full_text||"").slice(0,200)}...</span></div></div>`;
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// EVENT FEED
+// ═══════════════════════════════════════════════════
+function renderEventFeed(events){
+  const feed=document.getElementById("event-feed");
+  if(!feed) return;
+  feed.innerHTML="";
+  if(!events.length){feed.innerHTML="<p style='color:#445;font-size:12px;padding:10px;'>No events match filters.</p>";return;}
+  events.forEach((ev,i)=>{
+    const s=ev.severity||0;
+    feed.innerHTML+=`<div class="event-item" onclick="openEventModal(${i})"><div class="event-meta"><span>${ev.source||""}</span><span>${(ev.published||"").slice(0,16)}</span></div><div class="event-title">${(ev.title||"").slice(0,150)}</div><div class="event-badges"><span class="badge ${sevClass(s)}">SEV ${s}/10 ${sevLabel(s)}</span><span class="badge b-blue">${ev.event_type||"general"}</span>${ev.killed?`<span class="badge b-red">☠ ${ev.killed} killed</span>`:""}${ev.injured?`<span class="badge b-orange">⚕ ${ev.injured} injured</span>`:""}${(ev.actors||[]).slice(0,3).map(a=>`<span class="badge b-gray">${(a||"").slice(0,12).toUpperCase()}</span>`).join("")}</div></div>`;
+  });
+}
+
+function filterEvents(){
+  const q=(document.getElementById("search-input").value||"").toLowerCase();
+  const type=document.getElementById("type-filter").value;
+  const sev=document.getElementById("sev-filter").value;
+  const filtered=ALL_EVENTS.filter(ev=>{
+    const text=((ev.title||"")+" "+(ev.summary||"")).toLowerCase();
+    const mq=!q||text.includes(q);
+    const mt=!type||ev.event_type===type;
+    const s=ev.severity||0;
+    const ms=!sev||(sev==="high"&&s>=8)||(sev==="med"&&s>=5&&s<8)||(sev==="low"&&s<5);
+    return mq&&mt&&ms;
+  });
+  renderEventFeed(filtered);
+}
+
+function openEventModal(i){
+  const ev=ALL_EVENTS[i];
+  if(!ev) return;
+  document.getElementById("event-modal-body").innerHTML=`
+    <div class="modal-field"><div class="modal-key">Title</div><div class="modal-val">${ev.title||"—"}</div></div>
+    <div class="modal-field"><div class="modal-key">Source</div><div class="modal-val">${ev.source||"—"}</div></div>
+    <div class="modal-field"><div class="modal-key">URL</div><div class="modal-val"><a href="${ev.url||"#"}" target="_blank">${ev.url||"—"}</a></div></div>
+    <div class="modal-field"><div class="modal-key">Published</div><div class="modal-val">${ev.published||"—"}</div></div>
+    <div class="modal-field"><div class="modal-key">Event Type</div><div class="modal-val">${ev.event_type||"—"}</div></div>
+    <div class="modal-field"><div class="modal-key">Severity</div><div class="modal-val">${ev.severity||0}/10</div></div>
+    <div class="modal-field"><div class="modal-key">Killed</div><div class="modal-val">${ev.killed||0}</div></div>
+    <div class="modal-field"><div class="modal-key">Injured</div><div class="modal-val">${ev.injured||0}</div></div>
+    <div class="modal-field"><div class="modal-key">Actors</div><div class="modal-val">${(ev.actors||[]).join(", ")||"—"}</div></div>
+    <div class="modal-field"><div class="modal-key">Locations</div><div class="modal-val">${(ev.locations||[]).join(", ")||"—"}</div></div>
+    <div class="modal-field"><div class="modal-key">Summary</div><div class="modal-val">${(ev.summary||"").slice(0,500)}</div></div>
+    <div class="modal-field"><div class="modal-key">Sentiment</div><div class="modal-val">${JSON.stringify(ev.sentiment||{})}</div></div>
+  `;
+  document.getElementById("event-modal").classList.add("active");
+}
+function closeEventModal(){document.getElementById("event-modal").classList.remove("active");}
+
+// ═══════════════════════════════════════════════════
+// COMPARISON (DUAL POV)
+// ═══════════════════════════════════════════════════
+async function loadComparison(){
+  const d=await fetch("/api/comparison").then(r=>r.json()).catch(()=>({}));
+  const l=d.live_scrape||{};
+  const a=d.articles||{};
+
+  document.getElementById("pov1-source").innerText  = l.source||"—";
+  document.getElementById("pov1-killed").innerText  = l.killed||0;
+  document.getElementById("pov1-injured").innerText = l.injured||0;
+  document.getElementById("pov1-attacks").innerText = l.attacks||0;
+  document.getElementById("pov1-pages").innerText   = (l.pages||[]).join(", ")||"—";
+
+  document.getElementById("pov2-source").innerText   = a.source||"—";
+  document.getElementById("pov2-killed").innerText   = a.killed||0;
+  document.getElementById("pov2-injured").innerText  = a.injured||0;
+  document.getElementById("pov2-attacks").innerText  = a.attacks||0;
+  document.getElementById("pov2-articles").innerText = a.total_articles||0;
+
+  new Chart(document.getElementById("povKilledChart"),{type:"bar",data:{labels:["Live Tracker","Article Extraction"],datasets:[{data:[l.killed||0,a.killed||0],backgroundColor:["#ff003c","#0088ff"],borderRadius:4}]},options:{plugins:{legend:{display:false}},scales:{x:{ticks:{color:"#445"},grid:{color:"#1a2540"}},y:{ticks:{color:"#445"},grid:{color:"#1a2540"}}}}});
+  new Chart(document.getElementById("povAttacksChart"),{type:"bar",data:{labels:["Live Tracker","Article Extraction"],datasets:[{data:[l.attacks||0,a.attacks||0],backgroundColor:["#ff6600","#00ff88"],borderRadius:4}]},options:{plugins:{legend:{display:false}},scales:{x:{ticks:{color:"#445"},grid:{color:"#1a2540"}},y:{ticks:{color:"#445"},grid:{color:"#1a2540"}}}}});
+}
+
+// ═══════════════════════════════════════════════════
+// MAP — uses real NER geo coordinates
+// ═══════════════════════════════════════════════════
+function initMap(){
+  MAP_INSTANCE=L.map("conflict-map",{center:[29,45],zoom:4});
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{attribution:"&copy; CARTO",maxZoom:18}).addTo(MAP_INSTANCE);
+
+  ALL_EVENTS.forEach(ev=>{
+    const geo=ev.geo;
+    if(!geo||!geo.lat) return;
+    // Skip bad geocoding (middle of ocean, wrong hemisphere)
+    if(Math.abs(geo.lat)<5&&Math.abs(geo.lon)<5) return;
+
+    const s=ev.severity||3;
+    const color=s>=8?"#ff003c":s>=5?"#ff6600":"#00ff88";
+
+    L.circleMarker([geo.lat,geo.lon],{radius:s*2,color,fillColor:color,fillOpacity:0.6,weight:1})
+      .addTo(MAP_INSTANCE)
+      .bindPopup(`<div style="font-family:monospace;font-size:11px;background:#0a0f1e;color:#ccd;padding:8px;border-radius:4px;min-width:220px;"><b style="color:${color};">SEV ${s}/10</b> — ${ev.source||""}<br><br><b>Type:</b> ${ev.event_type||""}<br><b>Actors:</b> ${(ev.actors||[]).join(", ")}<br><br>${(ev.title||"").slice(0,120)}</div>`);
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// TIMELINE
+// ═══════════════════════════════════════════════════
+async function loadTimeline(){
+  const d=await fetch("/api/live").then(r=>r.json()).catch(()=>({}));
+  const agg=d.aggregate||{};
+  const sbd=agg.severity_by_date||{};
+  const vbd=agg.volume_by_date||{};
+  const cbd=agg.casualties_by_date||{};
+
+  const sl=Object.keys(sbd).sort();
+  if(sl.length){
+    new Chart(document.getElementById("timelineSevChart"),{type:"line",data:{labels:sl,datasets:[{label:"Avg Severity",data:sl.map(l=>sbd[l]),borderColor:"#ff003c",backgroundColor:"#ff003c22",fill:true,tension:0.4,pointBackgroundColor:"#ff003c"}]},options:{plugins:{legend:{labels:{color:"#445"}}},scales:{x:{ticks:{color:"#445"},grid:{color:"#1a2540"}},y:{min:0,max:10,ticks:{color:"#445"},grid:{color:"#1a2540"}}}}});
+  }
+
+  const vl=Object.keys(vbd).sort();
+  if(vl.length){
+    new Chart(document.getElementById("timelineVolChart"),{type:"bar",data:{labels:vl,datasets:[{label:"Event Count",data:vl.map(l=>vbd[l]),backgroundColor:"#0088ff88",borderColor:"#0088ff",borderWidth:1,borderRadius:3}]},options:{plugins:{legend:{labels:{color:"#445"}}},scales:{x:{ticks:{color:"#445"},grid:{color:"#1a2540"}},y:{ticks:{color:"#445"},grid:{color:"#1a2540"}}}}});
+  }
+
+  const cl=Object.keys(cbd).sort();
+  if(cl.length){
+    new Chart(document.getElementById("timelineCasChart"),{type:"bar",data:{labels:cl,datasets:[{label:"Killed",data:cl.map(l=>(cbd[l]||{}).killed||0),backgroundColor:"#ff003c88",borderRadius:3},{label:"Injured",data:cl.map(l=>(cbd[l]||{}).injured||0),backgroundColor:"#ffcc0088",borderRadius:3}]},options:{plugins:{legend:{labels:{color:"#445"}}},scales:{x:{ticks:{color:"#445"},grid:{color:"#1a2540"}},y:{ticks:{color:"#445"},grid:{color:"#1a2540"}}}}});
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// ACTORS
+// ═══════════════════════════════════════════════════
+async function loadActors(){
+  const d=await fetch("/api/live").then(r=>r.json()).catch(()=>({}));
+  const agg=d.aggregate||{};
+  const ac=agg.actor_counts||{};
+  const sent=agg.actor_sentiment||{};
+
+  new Chart(document.getElementById("actorBarChart"),{type:"bar",data:{labels:Object.keys(ac).map(k=>k.slice(0,15)),datasets:[{data:Object.values(ac),backgroundColor:C,borderRadius:3}]},options:{plugins:{legend:{display:false}},scales:{x:{ticks:{color:"#445"},grid:{color:"#1a2540"}},y:{ticks:{color:"#445"},grid:{color:"#1a2540"}}}}});
+
+  // Sentiment chart
+  const sentActors=Object.keys(sent).slice(0,8);
+  const posData=sentActors.map(a=>sent[a]==="POSITIVE"?1:0);
+  const negData=sentActors.map(a=>sent[a]==="NEGATIVE"?1:0);
+  new Chart(document.getElementById("actorSentChart"),{type:"bar",data:{labels:sentActors.map(a=>a.slice(0,12)),datasets:[{label:"Positive",data:posData,backgroundColor:"#00ff8888",borderRadius:3},{label:"Negative",data:negData,backgroundColor:"#ff003c88",borderRadius:3}]},options:{plugins:{legend:{labels:{color:"#445"}}},scales:{x:{stacked:true,ticks:{color:"#445"},grid:{color:"#1a2540"}},y:{stacked:true,ticks:{color:"#445"},grid:{color:"#1a2540"}}}}});
+
+  const tbody=document.getElementById("actor-table-body");
+  tbody.innerHTML="";
+  for(const [actor,count] of Object.entries(ac)){
+    const s=sent[actor]||"NEUTRAL";
+    const sc=s==="POSITIVE"?"b-green":s==="NEGATIVE"?"b-red":"b-gray";
+    tbody.innerHTML+=`<tr><td>${actor.slice(0,20)}</td><td>${count}</td><td><span class="badge ${sc}">${s}</span></td><td>—</td></tr>`;
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// CASUALTIES
+// ═══════════════════════════════════════════════════
+async function loadCasualties(){
+  const d=await fetch("/api/live").then(r=>r.json()).catch(()=>({}));
+  const agg=d.aggregate||{};
+  const killed=agg.total_killed||0;
+  const injured=agg.total_injured||0;
+  document.getElementById("cas-killed").innerText=killed;
+  document.getElementById("cas-injured").innerText=injured;
+  document.getElementById("cas-total").innerText=killed+injured;
+
+  new Chart(document.getElementById("casCompareChart"),{type:"doughnut",data:{labels:["Killed","Injured"],datasets:[{data:[killed,injured],backgroundColor:["#ff003c","#ffcc00"],borderWidth:0}]},options:{plugins:{legend:{labels:{color:"#445"}}}}});
+
+  const etc=agg.event_type_counts||{};
+  new Chart(document.getElementById("casTypeChart"),{type:"bar",data:{labels:Object.keys(etc),datasets:[{data:Object.values(etc),backgroundColor:C,borderRadius:3}]},options:{plugins:{legend:{display:false}},scales:{x:{ticks:{color:"#445"},grid:{color:"#1a2540"}},y:{ticks:{color:"#445"},grid:{color:"#1a2540"}}}}});
+
+  const casEvents=(d.events_with_casualties||[]).slice(0,20);
+  const feed=document.getElementById("cas-feed");
+  feed.innerHTML="";
+  casEvents.forEach(ev=>{
+    feed.innerHTML+=`<div class="event-item"><div class="event-meta"><span>${ev.source}</span><span>${ev.date||""}</span></div><div class="event-title">${(ev.title||"").slice(0,140)}</div><div class="event-badges"><span class="badge b-red">☠ ${ev.killed}</span><span class="badge b-orange">⚕ ${ev.injured}</span><span class="badge b-blue">${ev.type}</span></div></div>`;
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// CLUSTERS
+// ═══════════════════════════════════════════════════
+async function loadClusters(){
+  const data=await fetch("/api/clusters").then(r=>r.json()).catch(()=>[]);
+  const grid=document.getElementById("cluster-grid");
+  grid.innerHTML="";
+
+  if(!data.length){grid.innerHTML="<p style='color:#445;'>No cluster data available.</p>";return;}
+
+  data.forEach(c=>{
+    const actors=(c.top_actors||[]).slice(0,3).filter(Boolean);
+    const orgs=(c.top_organizations||[]).slice(0,3).filter(Boolean);
+    const locs=(c.top_locations||[]).slice(0,2).filter(Boolean);
+    const summ=(c.summary||"").slice(0,160);
+
+    grid.innerHTML+=`
+      <div class="cluster-card" onclick="openCluster(${c.cluster_id})">
+        <h4>Cluster #${c.cluster_id} — ${c.num_articles} articles</h4>
+        <div class="summ">${summ}...</div>
+        <div class="meta">
+          ${actors.map(a=>`<span class="badge b-red">${(a||"").slice(0,12)}</span>`).join("")}
+          ${orgs.map(o=>`<span class="badge b-blue">${(o||"").slice(0,12)}</span>`).join("")}
+          ${locs.map(l=>`<span class="badge b-green">${(l||"").slice(0,12)}</span>`).join("")}
+        </div>
+      </div>`;
+  });
+}
+
+async function openCluster(cid){
+  const c=await fetch(`/api/cluster/${cid}`).then(r=>r.json()).catch(()=>({}));
+  const body=document.getElementById("cluster-modal-body");
+
+  const actors=(c.top_actors||[]).filter(Boolean);
+  const orgs=(c.top_organizations||[]).filter(Boolean);
+  const locs=(c.top_locations||[]).filter(Boolean);
+  const articles=c.articles||[];
+  const titles=c.titles||[];
+
+  body.innerHTML=`
+    <div class="modal-field"><div class="modal-key">Cluster ID</div><div class="modal-val">#${c.cluster_id} — ${c.num_articles} articles</div></div>
+    <div class="modal-field"><div class="modal-key">Summary</div><div class="modal-val" style="line-height:1.6;">${c.summary||"—"}</div></div>
+    <div class="modal-field">
+      <div class="modal-key">Top Actors</div>
+      <div class="modal-val">${actors.map(a=>`<span class="badge b-red" style="margin:2px;">${a}</span>`).join("")||"—"}</div>
+    </div>
+    <div class="modal-field">
+      <div class="modal-key">Top Organizations</div>
+      <div class="modal-val">${orgs.map(o=>`<span class="badge b-blue" style="margin:2px;">${o}</span>`).join("")||"—"}</div>
+    </div>
+    <div class="modal-field">
+      <div class="modal-key">Top Locations</div>
+      <div class="modal-val">${locs.map(l=>`<span class="badge b-green" style="margin:2px;">${l}</span>`).join("")||"—"}</div>
+    </div>
+    <div class="modal-field">
+      <div class="modal-key">Article Titles</div>
+      <div class="modal-val">${titles.map(t=>`<div style="margin:3px 0;font-size:11px;color:#89a;">• ${t}</div>`).join("")||"—"}</div>
+    </div>
+    <div class="modal-field">
+      <div class="modal-key">Full Articles (${articles.length})</div>
+      <div class="articles-list">
+        ${articles.map(a=>`
+          <div class="article-mini">
+            <h5>${a.title||"Untitled"}</h5>
+            <p><b>Source:</b> ${a.source||"—"} &nbsp;|&nbsp; <b>Date:</b> ${a.published_date||a.published_at||"—"}</p>
+            <p style="margin-top:6px;">${(a.article_text||a.clean_text||"").slice(0,300)}${(a.article_text||"").length>300?"...":""}</p>
+            ${a.url?`<a href="${a.url}" target="_blank" style="color:#0088ff;font-size:10px;margin-top:4px;display:block;">View source →</a>`:""}
+            ${a.top_actors&&a.top_actors.length?`<div style="margin-top:6px;">${a.top_actors.slice(0,3).map(ac=>`<span class="badge b-red" style="margin:2px;">${(ac.name||"").slice(0,12)}</span>`).join("")}</div>`:""}
+            ${a.top_locations&&a.top_locations.length?`<div>${a.top_locations.slice(0,3).map(l=>`<span class="badge b-green" style="margin:2px;">${(l.name||"").slice(0,12)}</span>`).join("")}</div>`:""}
+          </div>`).join("")||"<p style='color:#445;'>No full article data.</p>"}
+      </div>
+    </div>
+  `;
+  document.getElementById("cluster-modal").classList.add("active");
+}
+function closeClusterModal(){document.getElementById("cluster-modal").classList.remove("active");}
+
+// ═══════════════════════════════════════════════════
+// D3 NER GRAPH
+// ═══════════════════════════════════════════════════
+async function loadNERGraph(){
+  const data=await fetch("/api/graph/ner").then(r=>r.json()).catch(()=>({nodes:[],links:[]}));
+  if(!data.nodes.length){document.getElementById("ner-graph").innerHTML="<p style='color:#445;padding:20px;'>No graph data.</p>";return;}
+  drawD3Graph("#ner-graph", data, "ner");
+}
+
+async function loadClusterGraph(){
+  const data=await fetch("/api/graph/clusters").then(r=>r.json()).catch(()=>({nodes:[],links:[]}));
+  if(!data.nodes.length){document.getElementById("cluster-graph").innerHTML="<p style='color:#445;padding:20px;'>No graph data.</p>";return;}
+  drawD3Graph("#cluster-graph", data, "cluster");
+}
+
+function drawD3Graph(selector, data, mode){
+  const el=document.querySelector(selector);
+  const W=el.offsetWidth||900;
+  const H=500;
+
+  d3.select(selector).selectAll("*").remove();
+
+  const svg=d3.select(selector).append("svg").attr("width",W).attr("height",H);
+
+  // Background
+  svg.append("rect").attr("width",W).attr("height",H).attr("fill","#060a14");
+
+  const simulation=d3.forceSimulation(data.nodes)
+    .force("link",d3.forceLink(data.links).id(d=>d.id).distance(80))
+    .force("charge",d3.forceManyBody().strength(-200))
+    .force("center",d3.forceCenter(W/2,H/2))
+    .force("collision",d3.forceCollide(30));
+
+  // Links
+  const link=svg.append("g").selectAll("line").data(data.links).join("line")
+    .attr("stroke","#1a2540").attr("stroke-width",d=>Math.sqrt(d.weight||1)*1.5).attr("stroke-opacity",0.6);
+
+  // Node color
+  function nodeColor(d){
+    if(mode==="cluster"){
+      if(d.type==="cluster") return "#aa44ff";
+      if(d.type==="actor")   return "#ff003c";
+      if(d.type==="org")     return "#0088ff";
+      if(d.type==="location")return "#00ff88";
+    } else {
+      if(d.type==="location") return "#00ff88";
+      if(d.sentiment==="NEGATIVE") return "#ff003c";
+      return "#0088ff";
+    }
+    return "#89a";
+  }
+
+  function nodeRadius(d){
+    if(d.type==="cluster") return Math.min(20, 8+d.count*2);
+    return Math.min(16, 6+Math.sqrt(d.count||1)*3);
+  }
+
+  // Nodes
+  const node=svg.append("g").selectAll("circle").data(data.nodes).join("circle")
+    .attr("r",d=>nodeRadius(d))
+    .attr("fill",d=>nodeColor(d))
+    .attr("fill-opacity",0.8)
+    .attr("stroke","#060a14")
+    .attr("stroke-width",2)
+    .style("cursor","pointer")
+    .call(d3.drag()
+      .on("start",(e,d)=>{if(!e.active)simulation.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
+      .on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y;})
+      .on("end",(e,d)=>{if(!e.active)simulation.alphaTarget(0);d.fx=null;d.fy=null;})
+    );
+
+  // Labels
+  const label=svg.append("g").selectAll("text").data(data.nodes).join("text")
+    .text(d=>(d.label||"").slice(0,14))
+    .attr("fill","#89a")
+    .attr("font-size","9px")
+    .attr("font-family","Courier New")
+    .attr("text-anchor","middle")
+    .attr("dy","1.8em")
+    .style("pointer-events","none");
+
+  // Tooltip
+  const tooltip=d3.select("body").append("div")
+    .style("position","fixed").style("background","#0a0f1e")
+    .style("border","1px solid #0088ff").style("border-radius","6px")
+    .style("padding","8px 12px").style("font-size","11px")
+    .style("font-family","Courier New").style("color","#ccd")
+    .style("pointer-events","none").style("display","none").style("z-index","9999");
+
+  node.on("mouseover",(e,d)=>{
+    tooltip.style("display","block")
+      .html(`<b style="color:#0088ff">${d.label||d.id}</b><br>Type: ${d.type}<br>Count: ${d.count||0}${d.summary?`<br><span style="color:#556;">${d.summary.slice(0,100)}...</span>`:""}`)
+      .style("left",(e.clientX+12)+"px").style("top",(e.clientY-10)+"px");
+  })
+  .on("mousemove",(e)=>{tooltip.style("left",(e.clientX+12)+"px").style("top",(e.clientY-10)+"px");})
+  .on("mouseout",()=>tooltip.style("display","none"))
+  .on("click",(e,d)=>{
+    if(d.type==="cluster"&&d.cluster_id!=null) openCluster(d.cluster_id);
+  });
+
+  simulation.on("tick",()=>{
+    link.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+    node.attr("cx",d=>Math.max(20,Math.min(W-20,d.x))).attr("cy",d=>Math.max(20,Math.min(H-20,d.y)));
+    label.attr("x",d=>Math.max(20,Math.min(W-20,d.x))).attr("y",d=>Math.max(20,Math.min(H-20,d.y)));
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// RISK
+// ═══════════════════════════════════════════════════
+async function loadRisk(){
+  const d=await fetch("/api/live").then(r=>r.json()).catch(()=>({}));
+  const risk=d.risk||{};
+  const score=risk.risk_score||0;
+  const label=risk.risk_label||"LOW";
+  document.getElementById("risk-score-val").innerText=score;
+  document.getElementById("risk-score-label").innerText=label;
+  const cm={CRITICAL:"#ff003c",HIGH:"#ff6600",MEDIUM:"#ffcc00",LOW:"#00ff88"};
+  const fill=document.getElementById("risk-gauge-fill");
+  fill.style.width=score+"%";fill.style.background=cm[label]||"#00ff88";
+  document.getElementById("risk-score-val").style.color=cm[label]||"#00ff88";
+  const bd=risk.breakdown||{};
+  new Chart(document.getElementById("riskBreakChart"),{type:"bar",data:{labels:["Attack","Severity","Casualties","Escalation"],datasets:[{data:[bd.attack_component||0,bd.severity_component||0,bd.casualty_component||0,bd.escalation_component||0],backgroundColor:["#ff003c","#ff6600","#ffcc00","#0088ff"],borderRadius:4}]},options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{max:30,ticks:{color:"#445"},grid:{color:"#1a2540"}},y:{ticks:{color:"#89a"},grid:{color:"#1a2540"}}}}});
+}
+
+// ═══════════════════════════════════════════════════
+// SOURCES
+// ═══════════════════════════════════════════════════
+async function loadSources(){
+  const d=await fetch("/api/live").then(r=>r.json()).catch(()=>({}));
+  const sc=d.aggregate?.source_counts||{};
+  const tbody=document.getElementById("source-tbody");
+  tbody.innerHTML="";
+  for(const [src,count] of Object.entries(sc)){
+    const meta=SOURCE_META[src]||{conf:0.60,bias:"Unknown",type:"RSS"};
+    const pct=Math.round(meta.conf*100);
+    tbody.innerHTML+=`<tr><td>${src}</td><td>${count}</td><td><span class="conf-bar" style="width:${pct}px;"></span> ${pct}%</td><td>${meta.type}</td><td>${meta.bias}</td></tr>`;
+  }
+  if(Object.keys(sc).length){
+    new Chart(document.getElementById("sourceChart"),{type:"doughnut",data:{labels:Object.keys(sc),datasets:[{data:Object.values(sc),backgroundColor:C,borderWidth:0}]},options:{plugins:{legend:{labels:{color:"#445",font:{size:10}}}}}});
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+loadOverview();
+</script>
+</body>
+</html>
